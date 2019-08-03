@@ -3,12 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [{
-  path: 'xxx',
-  loadChildren: () => import('../@modules/fintech/currency/currency.module').then(m => m.CurrencyModule)
+  path: '',
+  loadChildren: () => import('../@modules/currency/currency.module').then(m => m.CurrencyModule)
 }];
-
-
-// const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
