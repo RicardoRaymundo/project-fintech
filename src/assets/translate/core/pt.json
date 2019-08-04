@@ -1,0 +1,9 @@
+{
+  "demo": {
+    "CORE_TITLE_MALALA": "Tradução demo CORE",
+    "CORE_text": "Este é um aplicativo de demonstração simples para ngx-translate CORE"
+  },
+  "HOME": {
+    "CORE_BTN_HOME": "Entrar"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "PAGE": {
+    "TITLE": "Título da Página",
+    "TEXT": "Texto de exemplo da página em PORTUGUÊS."
+  },
+  "TOOLBAR": {
+    "TITLE": "Título da Applicação"
+  },
+  "BTN": {
+    "SAVE": "Salvar",
+    "ENTER": "Entrar"
+  }
+}

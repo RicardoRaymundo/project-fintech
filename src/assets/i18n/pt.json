@@ -1,0 +1,9 @@
+{
+  "demo": {
+    "TITLE_MALALA": "Tradução demo EEEEE",
+    "text": "Este é um aplicativo de demonstração simples para ngx-translate XXXXX"
+  },
+  "HOME": {
+    "BTN_HOME": "Entrar"
+  }
+}
