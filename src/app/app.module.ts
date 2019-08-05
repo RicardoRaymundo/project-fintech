@@ -6,12 +6,12 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatToolbarModule} from '@angular/material';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
 import {OutletsModule} from '../@plugins/outlets/outlets.module';
 import {ToolbarModule} from '../@plugins/toolbar/toolbar.module';
 import {WINDOW_PROVIDERS} from '../@plugins/utils/window.service';
+
 
 @NgModule({
   declarations: [

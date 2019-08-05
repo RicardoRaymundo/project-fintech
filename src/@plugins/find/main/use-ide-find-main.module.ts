@@ -20,7 +20,6 @@ const MODULES: Array<any> = [
   imports: [...MODULES],
   declarations: [...COMPONENTS],
   entryComponents: [],
-  providers: [],
   exports: [...COMPONENTS, ...MODULES]
 })
 
