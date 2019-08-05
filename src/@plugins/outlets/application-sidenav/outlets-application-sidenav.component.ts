@@ -71,12 +71,12 @@ export class OutletsApplicationSidenavComponent implements OnInit {
   public pageWelcome: boolean = false;
   public pageLogin: boolean = false;
 
-  constructor(@Inject(Location) public location,
+  /*constructor(@Inject(Location) public location,
               @Inject(WINDOW) public window: Window,
               public router: Router,
               private _bottomSheet: MatBottomSheet) {
     this.onResize();
-  }
+  }*/
 
   public get sideInfoOpened(): boolean {
     // return this.useIdePlatform.sideInfoOpened;
@@ -108,12 +108,12 @@ export class OutletsApplicationSidenavComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   public onResize(event?) {
-    this.screenHeight = this.window.innerHeight - 65;
+    // this.screenHeight = this.window.innerHeight - 65;
     // console.log(this.window.innerHeight);
   }
 
   public onActivate(component: any) {
-    this.window.scroll(0, 0);
+    // this.window.scroll(0, 0);
   }
 
   public onToggleSideContent(): void {
@@ -135,7 +135,7 @@ export class OutletsApplicationSidenavComponent implements OnInit {
   }
 
   public openTemplate(): void {
-    this._bottomSheet.open(this.template, this.config);
+    // this._bottomSheet.open(this.template, this.config);
   }
 
 }

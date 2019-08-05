@@ -1,9 +1,5 @@
-import {Component, ElementRef, EventEmitter, Inject, Input, Output, Renderer2} from '@angular/core';
-import {Platform} from '@angular/cdk/platform';
-import {Location} from '@angular/common';
-import {WINDOW} from '../../utils/window.service';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ToolbarMenuInterface} from '../toolbar-menu.interface';
-import {Router} from '@angular/router';
 
 
 @Component({
@@ -36,7 +32,7 @@ export class UseIdeToolbarListComponent {
   /**
    * Recebe o endereço que deve ser acessado para edição
    */
-  @Input('routerEdit')
+  @Input()
   public routerEdit: string;
 
   /**
@@ -69,13 +65,13 @@ export class UseIdeToolbarListComponent {
    */
   public selectedItem: any;
 
-  constructor(public router: Router,
+  /*constructor(public router: Router,
               @Inject(Location) public location,
               @Inject(Platform) public platform,
               @Inject(WINDOW) public window: Window,
               @Inject(ElementRef) public elementRef,
               @Inject(Renderer2) public renderer) {
-  }
+  }*/
 
   /**
    * Status mostra/oculta o botão configurações
@@ -109,7 +105,7 @@ export class UseIdeToolbarListComponent {
    * Evento disparado quando o botão voltar é clicado
    */
   public onBack(e: MouseEvent, c: any): void {
-    this.location.back();
+    // this.location.back();
   }
 
   /**
@@ -121,7 +117,7 @@ export class UseIdeToolbarListComponent {
 
       console.log('this.routerEdi', this.routerEdit);
 
-      this.router.navigate([this.routerEdit]);
+      // this.router.navigate([this.routerEdit]);
     } else {
       console.error('Error Router', 'Nenhuma rota de edição foi configurada em', this.constructor.name);
     }

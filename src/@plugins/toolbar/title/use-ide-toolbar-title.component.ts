@@ -105,14 +105,14 @@ export class UseIdeToolbarTitleComponent implements OnInit {
   public showProgress: boolean = false;
   private __id: string;
 
-  constructor(public router: Router,
+  /*constructor(public router: Router,
               public activatedRoute: ActivatedRoute,
               @Inject(Location) public location,
               @Inject(Platform) public platform,
               @Inject(WINDOW) public window: Window,
               @Inject(ElementRef) public elementRef,
               @Inject(Renderer2) public renderer) {
-  }
+  }*/
 
   /**
    * Status mostra/oculta o botão configurações
@@ -129,18 +129,18 @@ export class UseIdeToolbarTitleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params: any) => {
+    /*this.activatedRoute.params.subscribe((params: any) => {
       if (params.hasOwnProperty('id')) {
         this.__id = params.id;
       }
-    });
+    });*/
   }
 
   /**
    * Evento disparado quando o botão voltar é clicado
    */
   public onBack(e: MouseEvent, c: any): void {
-    this.location.back();
+    // this.location.back();
     // this.back.emit();
   }
 
@@ -177,11 +177,11 @@ export class UseIdeToolbarTitleComponent implements OnInit {
     // console.log('location', location.origin + '/print' + location.pathname);
 
     // console.log('LOCATION', location);
-    if (location.pathname.substr(1, 5) === 'print') {
+    /*if (location.pathname.substr(1, 5) === 'print') {
       this.window.print();
     } else {
       this.window.open(location.origin + '/print' + location.pathname);
-    }
+    }*/
 
   }
 

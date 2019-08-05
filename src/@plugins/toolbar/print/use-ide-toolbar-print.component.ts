@@ -103,14 +103,14 @@ export class UseIdeToolbarPrintComponent implements OnInit {
   public showProgress: boolean = false;
   private __id: string;
 
-  constructor(public router: Router,
+  /*constructor(public router: Router,
               public activatedRoute: ActivatedRoute,
               @Inject(Location) public location,
               @Inject(Platform) public platform,
               @Inject(WINDOW) public window: Window,
               @Inject(ElementRef) public elementRef,
               @Inject(Renderer2) public renderer) {
-  }
+  }*/
 
   /**
    * Status mostra/oculta o botão configurações
@@ -127,11 +127,11 @@ export class UseIdeToolbarPrintComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params: any) => {
+    /*this.activatedRoute.params.subscribe((params: any) => {
       if (params.hasOwnProperty('id')) {
         this.__id = params.id;
       }
-    });
+    });*/
   }
 
   /**
@@ -142,12 +142,12 @@ export class UseIdeToolbarPrintComponent implements OnInit {
     // this.back.emit();
 
     // console.log('LOCATION', location);
-    if (location.pathname.substr(1, 5) === 'print') {
+    /*if (location.pathname.substr(1, 5) === 'print') {
       this.window.close();
     } else {
       this.location.back();
       // this.back.emit();
-    }
+    }*/
 
   }
 
@@ -184,11 +184,11 @@ export class UseIdeToolbarPrintComponent implements OnInit {
     // console.log('location', location.origin + '/print' + location.pathname);
 
     // console.log('LOCATION', location);
-    if (location.pathname.substr(1, 5) === 'print') {
+    /*if (location.pathname.substr(1, 5) === 'print') {
       this.window.print();
     } else {
       this.window.open(location.origin + '/print' + location.pathname);
-    }
+    }*/
 
   }
 

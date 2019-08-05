@@ -51,12 +51,12 @@ export class UseIdeToolbarFormComponent {
   public listItemsMenuSettings: Array<ToolbarMenuInterface> = [{icon: 'open_in_new', label: 'Open in new'}];
   public listItemsMenu: Array<ToolbarMenuInterface> = [{icon: 'star', label: 'Open in newx'}];
 
-  constructor(@Inject(Location) public location,
+  /*constructor(@Inject(Location) public location,
               @Inject(Platform) public platform,
               @Inject(WINDOW) public window: Window,
               @Inject(ElementRef) public elementRef,
               @Inject(Renderer2) public renderer) {
-  }
+  }*/
 
   /**
    * Status mostra/oculta o barra de progresso
@@ -79,7 +79,7 @@ export class UseIdeToolbarFormComponent {
    * @param c Elemento html clicado
    */
   public onBack(e: MouseEvent, c: any): void {
-    this.location.back();
+    // this.location.back();
   }
 
   /**
