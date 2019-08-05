@@ -3,5 +3,5 @@ import {Input} from '@angular/core';
 
 
 export abstract class ToolbarAbstract extends UseComponentAbstract {
-  @Input('content') public content: any;
+  @Input() public content: any;
 }

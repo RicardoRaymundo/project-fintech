@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   selector: 'use-ide-toolbar-print',
   templateUrl: './use-ide-toolbar-print.template.html'
 })
-export class UseIdeToolbarPrintComponent extends ToolbarAbstract implements OnInit {
+export class UseIdeToolbarPrintComponent implements OnInit {
   /**
    * Evento disparado quando o botão voltar é clicado
    * @type {EventEmitter<any>}
@@ -110,8 +110,6 @@ export class UseIdeToolbarPrintComponent extends ToolbarAbstract implements OnIn
               @Inject(WINDOW) public window: Window,
               @Inject(ElementRef) public elementRef,
               @Inject(Renderer2) public renderer) {
-    super(location, platform, window, elementRef, renderer);
-
   }
 
   /**
