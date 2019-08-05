@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {TranslateConfig} from '../../../@plugins/config/translate.config';
 import {ActivatedRoute} from '@angular/router';
@@ -13,7 +13,7 @@ export class CurrencyListComponent implements OnInit {
 
   constructor(public translateService: TranslateService,
               public translateConfig: TranslateConfig,
-              private _activatedRoute: ActivatedRoute) {
+              @Inject(ActivatedRoute) private _activatedRoute: ActivatedRoute) {
 
     // Implementa internacionalização
     this._configTranslate();
