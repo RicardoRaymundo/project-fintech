@@ -1,0 +1,13 @@
+{
+  "PAGE": {
+    "TITLE": "Page Title",
+    "TEXT": "Sample page text in ENGLISH."
+  },
+  "TOOLBAR": {
+    "TITLE": "Application Title"
+  },
+  "BTN": {
+    "SAVE": "Save",
+    "ENTER": "Enter"
+  }
+}

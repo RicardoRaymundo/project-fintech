@@ -1,0 +1,76 @@
+<div class="outlets-application-sidenav">
+  <!--<div *ngIf="pagePrint" style="background: #ffffff">
+  <router-outlet (activate)="onActivate($event)" #outlet></router-outlet>
+</div>
+
+<div *ngIf="pageWelcome || pageLogin">
+  <router-outlet (activate)="onActivate($event)" #outlet></router-outlet>
+</div>
+
+<div *ngIf="!pagePrint && !pageWelcome && !pageLogin">
+-->
+  <div>
+    <mat-sidenav-container class="sidenav-main--wrap">
+      <mat-sidenav class="info--wrap mat-elevation-z4" mode="side" position="end" [opened]="sideInfoOpened">
+        <div class="use-info" #outLetInfo></div>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <!--Barra de menu principal-->
+        <toolbar-header-application (menu)="onToggleSideContent()"></toolbar-header-application>
+
+        <mat-sidenav-container class="content--wrap" [hasBackdrop]="false">
+          <mat-sidenav
+            [mode]="sidenaveMenuMode"
+            [ngClass]="{'menu-opened':menuOpened, 'menu-closed':!menuOpened, 'tmp-menu-opened':menuOpenedTmp}"
+            [opened]="menuOpenedControl"
+            (opened)="onOpenedSideMenu()"
+            (closed)="onClosedSideMenu()"
+            [fixedInViewport]="true" [fixedTopGap]="65"
+            [fixedBottomGap]="0">
+
+            <use-ide-menu-sidenav-group [opened]="menuOpened"
+                                        [openedTmp]="menuOpenedTmp"
+                                        (resize)="onResizeMenu($event)"
+                                        [listData]="listSidenaveMenu">
+            </use-ide-menu-sidenav-group>
+
+          </mat-sidenav>
+          <mat-sidenav-content>
+
+            <div class="content" [ngClass]="{'show-tools':showTools}" [style.height]="screenHeight+'px'" style="overflow: auto">
+              <router-outlet (activate)="onActivate($event)" #outlet></router-outlet>
+            </div>
+            <div class="tools" *ngIf="showTools">
+              <use-ide-menu-tools></use-ide-menu-tools>
+            </div>
+
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+
+    <ng-template #bottomSheet let-bottomSheetRef="bottomSheetRef" class="mat-elevation-z0">
+      <mat-nav-list>
+        <mat-list-item (click)="bottomSheetRef.dismiss()">
+          <mat-icon mat-list-icon>how_to_reg</mat-icon>
+          <span mat-line>Enviar para aprovação</span>
+          <span mat-line>Contratos aberto durante a semana</span>
+        </mat-list-item>
+        <mat-list-item (click)="bottomSheetRef.dismiss()">
+          <mat-icon mat-list-icon>forward</mat-icon>
+          <span mat-line>Finalizar processo de entrega</span>
+          <span mat-line>Contratos aprovados</span>
+        </mat-list-item>
+        <mat-list-item (click)="bottomSheetRef.dismiss()">
+          <mat-icon mat-list-icon>block</mat-icon>
+          <span mat-line>Encerrar analise de crédito</span>
+          <span mat-line>Contratos recusados</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </ng-template>
+  </div>
+
+</div>

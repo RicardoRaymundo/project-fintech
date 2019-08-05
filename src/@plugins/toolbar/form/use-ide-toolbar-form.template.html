@@ -1,0 +1,126 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button #back class="mat-elevation-z0"
+            mat-mini-fab
+            name="back"
+            matTooltip="Voltar"
+            (click)="onBack($event, back)">
+      <mat-icon aria-label="">arrow_back</mat-icon>
+    </button>
+
+    <h2 style="padding-right: 15px">{{label}}</h2>
+
+    <!--<button #btnReload class="mat-elevation-z0"
+            mat-mini-fab
+            name="reaload"
+            matTooltip="Atualizar"
+            (click)="onReload($event, btnReload)">
+      <mat-icon aria-label="">refresh</mat-icon>
+    </button>
+-->
+    <mat-divider [vertical]="true"></mat-divider>
+
+   <!-- <button #btnDelete class="mat-elevation-z0"
+            mat-mini-fab
+            name="delete"
+            matTooltip="Deletar"
+            [disabled]="true"
+            (click)="onDelete($event, btnDelete)">
+      <mat-icon aria-label="">delete</mat-icon>
+    </button>
+
+    <button #cancel class="mat-elevation-z0"
+            mat-mini-fab
+            name="cancelar"
+            matTooltip="Cancelar"
+            (click)="onCancel($event, save)">
+      <mat-icon aria-label="">insert_drive_file</mat-icon>
+    </button>-->
+
+    <button #save class="mat-elevation-z0"
+            mat-mini-fab
+            name="save"
+            matTooltip="Salvar"
+            (click)="onSave($event, save)">
+      <mat-icon aria-label="">save</mat-icon>
+    </button>
+
+    <span class="spacer"></span>
+
+   <!-- <button #print class="mat-elevation-z0"
+            disabled
+            mat-mini-fab
+            name="print"
+            matTooltip="Imprimir"
+            (click)="onPrint($event, print)">
+      <mat-icon aria-label="">print</mat-icon>
+    </button>-->
+
+    <!--<button #openInNew class="mat-elevation-z0"
+            disabled
+            mat-mini-fab
+            name="openInNew"
+            matTooltip="Abrir em nova janela"
+            (click)="onOpenInNew($event, openInNew)">
+      <mat-icon aria-label="">open_in_new</mat-icon>
+    </button>
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <button class="mat-elevation-z0"
+            disabled
+            mat-mini-fab
+            name="settings"
+            matTooltip="Configurações"
+            [matMenuTriggerFor]="menuSettings">
+      <mat-icon aria-label="">settings</mat-icon>
+    </button>-->
+
+    <span class="spacer"></span>
+
+    <!--<button mat-mini-fab class="mat-elevation-z0">
+      <mat-icon aria-label="">save</mat-icon>
+    </button>-->
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">print</mat-icon>
+    </button>
+
+    <!--<button mat-mini-fab class="mat-elevation-z0">
+      <mat-icon aria-label="">open_in_new</mat-icon>
+    </button>-->
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">chevron_left</mat-icon>
+    </button>
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">chevron_right</mat-icon>
+    </button>
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">settings</mat-icon>
+    </button>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="use-progress">
+  <mat-progress-bar mode="indeterminate" *ngIf="showProgress"></mat-progress-bar>
+</div>
+
+<mat-menu #menuSettings="matMenu">
+  <button #settings mat-menu-item *ngFor="let item of listItemsMenuSettings" (click)="onSettings($event, settings, item)">
+    <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+    {{item.label}}
+  </button>
+</mat-menu>
+
+<mat-menu #mainMenu="matMenu">
+  <button #menu mat-menu-item *ngFor="let item of listItemsMenu" (click)="onSettings($event, menu, item)">
+    <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+    {{item.label}}
+  </button>
+</mat-menu>

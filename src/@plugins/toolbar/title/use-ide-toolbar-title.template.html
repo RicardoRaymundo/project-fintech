@@ -1,0 +1,104 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <mat-icon aria-label="">receipt</mat-icon>
+    <h3>{{title}}</h3>
+
+
+    <!--<button #print class="mat-elevation-z0"
+            mat-mini-fab
+            name="important"
+            matTooltip="Importante"
+            *ngIf="showButtonPrint">
+      <mat-icon aria-label="">label_important</mat-icon>
+    </button>
+
+    <button #print class="mat-elevation-z0"
+            mat-mini-fab
+            name="important"
+            matTooltip="Importante"
+            *ngIf="showButtonPrint">
+      <mat-icon aria-label="">star_border</mat-icon>
+    </button>
+
+    <span class="spacer"></span>
+
+
+    <button #chevronLeft class="mat-elevation-z0"
+            mat-mini-fab
+            name="chevronLeft"
+            matTooltip="Anterior"
+            *ngIf="showButtonChevron"
+            [disabled]="disabledButtonChevronLeft"
+            (click)="onChevronLeft($event, chevronLeft)">
+      <mat-icon aria-label="">chevron_left</mat-icon>
+    </button>
+
+    <button #chevronRight class="mat-elevation-z0"
+            mat-mini-fab
+            name="chevronRight"
+            matTooltip="Próximo"
+            *ngIf="showButtonChevron"
+            [disabled]="disabledButtonChevronRight"
+            (click)="onChevronRight($event, chevronRight)">
+      <mat-icon aria-label="">chevron_right</mat-icon>
+    </button>
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <button #print class="mat-elevation-z0"
+            mat-mini-fab
+            name="print"
+            matTooltip="Imprimir"
+            *ngIf="showButtonPrint"
+            (click)="onPrint($event, print)">
+      <mat-icon aria-label="">print</mat-icon>
+    </button>
+
+    <button #openInNew class="mat-elevation-z0"
+            mat-mini-fab
+            name="openInNew"
+            matTooltip="Abrir em nova janela"
+            *ngIf="showButtonOpenInNew"
+            (click)="onOpenInNew($event, openInNew)">
+      <mat-icon aria-label="">open_in_new</mat-icon>
+    </button>-->
+
+
+
+ <!--   <button class="mat-elevation-z0"
+            mat-mini-fab
+            name="settings"
+            matTooltip="Configurações"
+            *ngIf="showButtonSettings"
+            [matMenuTriggerFor]="menuSettings">
+      <mat-icon aria-label="">settings</mat-icon>
+    </button>-->
+
+  </mat-toolbar-row>
+<!--  <mat-toolbar-row class="toolbar-chip">
+    <mat-chip-list>
+      <mat-chip>One fish <mat-icon matChipRemove>close</mat-icon></mat-chip>
+      <mat-chip>Two fish <mat-icon matChipRemove>close</mat-icon></mat-chip>
+      <mat-chip >Primary fish <mat-icon matChipRemove>close</mat-icon></mat-chip>
+      <mat-chip>Accent fish <mat-icon matChipRemove>close</mat-icon></mat-chip>
+    </mat-chip-list>
+  </mat-toolbar-row>-->
+</mat-toolbar>
+
+<div class="use-progress">
+  <mat-progress-bar mode="indeterminate" *ngIf="showProgress"></mat-progress-bar>
+</div>
+
+<mat-menu #menuSettings="matMenu">
+  <button #settings mat-menu-item *ngFor="let item of listItemsMenuSettings" (click)="onSettings($event, settings, item)">
+    <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+    {{item.label}}
+  </button>
+</mat-menu>
+
+<mat-menu #mainMenu="matMenu">
+  <button #menu mat-menu-item *ngFor="let item of listItemsMenu" (click)="onSettings($event, menu, item)">
+    <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+    {{item.label}}
+  </button>
+</mat-menu>

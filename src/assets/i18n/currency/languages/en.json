@@ -1,0 +1,15 @@
+{
+  "CURRENCY": {
+    "PAGE": {
+      "TITLE": "Page Title CURRENCY XXQQQ ----->>>",
+      "TEXT": "Sample page text in ENGLISH CURRENCY. XXQQQ ----->>>"
+    },
+    "TOOLBAR": {
+      "TITLE": "Application Title CURRENCY ZZQQ ----->>>"
+    },
+    "BTN": {
+      "SAVE": "Save",
+      "ENTER": "Enter"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button #btnBack class="mat-elevation-z0"
+            *ngIf="showButtonBack"
+            mat-mini-fab
+            name="back"
+            matTooltip="Voltar"
+            (click)="onBack($event, btnBack)">
+      <mat-icon aria-label="">arrow_back</mat-icon>
+    </button>
+
+    <h2 style="padding-right: 15px">{{label}}</h2>
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <button #btnReload class="mat-elevation-z0"
+            mat-mini-fab
+            name="reaload"
+            matTooltip="Atualizar"
+            (click)="onReload($event, btnReload)">
+      <mat-icon aria-label="">refresh</mat-icon>
+    </button>
+
+    <!--<mat-divider [vertical]="true"></mat-divider>
+
+    <button #btnEdit class="mat-elevation-z0"
+            mat-mini-fab
+            name="edit"
+            matTooltip="Editar"
+            [disabled]="disableButtonEdit"
+            (click)="onEdit($event, btnEdit)">
+      <mat-icon aria-label="">edit</mat-icon>
+    </button>
+
+    <button #btnDelete class="mat-elevation-z0"
+            mat-mini-fab
+            name="delete"
+            matTooltip="Deletar"
+            [disabled]="true"
+            (click)="onDelete($event, btnDelete)">
+      <mat-icon aria-label="">delete</mat-icon>
+    </button>
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <button class="mat-elevation-z0"
+            mat-mini-fab
+            name="menu"
+            *ngIf="showButtonMore"
+            [matMenuTriggerFor]="mainMenu">
+      <mat-icon aria-label="">more_vert</mat-icon>
+    </button>-->
+
+    <span class="spacer"></span>
+
+    <mat-paginator [length]="1000"
+                    [showFirstLastButtons]="false"
+                    [hidePageSize]="true"
+                    [pageSize]="100">
+     </mat-paginator>
+
+    <button class="mat-elevation-z0"
+            mat-mini-fab
+            name="settings"
+            matTooltip="Configurações"
+            *ngIf="showButtonSettings"
+            [matMenuTriggerFor]="menuSettings">
+      <mat-icon aria-label="">settings</mat-icon>
+    </button>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="use-progress">
+  <mat-progress-bar mode="indeterminate" *ngIf="showProgress"></mat-progress-bar>
+</div>
+
+<mat-menu #menuSettings="matMenu">
+  <button #settings mat-menu-item *ngFor="let item of listItemsMenuSettings" (click)="onSettings($event, settings, item)">
+    <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+    {{item.label}}
+  </button>
+</mat-menu>
+
+<mat-menu #mainMenu="matMenu">
+  <button #menu mat-menu-item *ngFor="let item of listItemsMenu" (click)="onSettings($event, menu, item)">
+    <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+    {{item.label}}
+  </button>
+</mat-menu>
