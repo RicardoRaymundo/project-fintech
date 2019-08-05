@@ -7,7 +7,8 @@ import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'currency-list',
   templateUrl: './currency-list.template.html',
-  styleUrls: ['./currency-list.styles.scss']
+  styleUrls: ['./currency-list.styles.scss'],
+  providers:[TranslateService, TranslateConfig, ActivatedRoute]
 })
 export class CurrencyListComponent implements OnInit {
 
