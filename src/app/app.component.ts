@@ -12,15 +12,15 @@ import {ActivatedRoute} from '@angular/router';
 export class AppComponent {
   title = 'project-fintech';
 
-  constructor(public translateService: TranslateService,
+  /*constructor(public translateService: TranslateService,
               public translateConfig: TranslateConfig) {
 
     // Implementa internacionalização
-    this._configTranslate();
-  }
+    this._configTranslate();*/
+  // }
 
   public changeLanguage(language: string) {
-    this.translateService.use(this.translateConfig.use(language));
+    // this.translateService.use(this.translateConfig.use(language));
   }
 
   /**
@@ -28,11 +28,11 @@ export class AppComponent {
    */
   private _configTranslate(): void {
     const REGEX: any = /en|pt/;
-    this.translateService.addLangs(['en', 'pt']);
+    /*this.translateService.addLangs(['en', 'pt']);
     this.translateService.setDefaultLang(this.translateConfig.defaultLanguage);
     this.translateService.use(this.translateConfig.activeLang(REGEX));
     this.translateConfig.changeLang.subscribe(() => {
       this.translateService.use(this.translateConfig.activeLang(REGEX));
-    });
+    });*/
   }
 }
