@@ -10,8 +10,8 @@ export class ToolbarHeaderContentComponent implements OnInit {
 
   @Output() public menu: EventEmitter<any> = new EventEmitter();
 
-  constructor(public activeContent: ActiveContentService) {
-  }
+  /*constructor(public activeContent: ActiveContentService) {
+  }*/
 
   ngOnInit() {
   }
