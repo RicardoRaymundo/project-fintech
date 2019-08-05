@@ -1,5 +1,4 @@
 import {Component, ElementRef, EventEmitter, Inject, Input, Output, Renderer2} from '@angular/core';
-import {ToolbarAbstract} from '../toolbar.abstract';
 import {Platform} from '@angular/cdk/platform';
 import {WINDOW} from '../../utils/window.service';
 import {Location} from '@angular/common';
@@ -10,7 +9,7 @@ import {ToolbarMenuInterface} from '../toolbar-menu.interface';
   selector: 'use-ide-toolbar-form',
   templateUrl: './use-ide-toolbar-form.template.html'
 })
-export class UseIdeToolbarFormComponent extends ToolbarAbstract {
+export class UseIdeToolbarFormComponent {
 
   @Input() public label: string;
 
@@ -57,7 +56,6 @@ export class UseIdeToolbarFormComponent extends ToolbarAbstract {
               @Inject(WINDOW) public window: Window,
               @Inject(ElementRef) public elementRef,
               @Inject(Renderer2) public renderer) {
-    super(location, platform, window, elementRef, renderer);
   }
 
   /**
@@ -106,11 +104,11 @@ export class UseIdeToolbarFormComponent extends ToolbarAbstract {
    */
   public onReload(e: MouseEvent, c: any): void {
     this.showProgress = !this.showProgress;
-    if (this.content.hasOwnProperty('reload')) {
+    /*if (this.content.hasOwnProperty('reload')) {
       this.content.reload();
     } else {
       console.error('O conteúdo não tem resurso de atualizar definido', this.constructor.name);
-    }
+    }*/
   }
 
   /**

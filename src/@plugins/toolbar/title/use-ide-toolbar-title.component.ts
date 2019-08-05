@@ -1,6 +1,5 @@
 import {Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output, Renderer2} from '@angular/core';
 import {ToolbarMenuInterface} from '../toolbar-menu.interface';
-import {ToolbarAbstract} from '../toolbar.abstract';
 import {Platform} from '@angular/cdk/platform';
 import {WINDOW} from '../../utils/window.service';
 import {Location} from '@angular/common';
@@ -11,7 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   selector: 'use-ide-toolbar-title',
   templateUrl: './use-ide-toolbar-title.template.html'
 })
-export class UseIdeToolbarTitleComponent extends ToolbarAbstract implements OnInit {
+export class UseIdeToolbarTitleComponent implements OnInit {
 
   @Input() public title: string;
 
@@ -113,8 +112,6 @@ export class UseIdeToolbarTitleComponent extends ToolbarAbstract implements OnIn
               @Inject(WINDOW) public window: Window,
               @Inject(ElementRef) public elementRef,
               @Inject(Renderer2) public renderer) {
-    super(location, platform, window, elementRef, renderer);
-
   }
 
   /**

@@ -1,5 +1,4 @@
 import {Component, ElementRef, EventEmitter, Inject, Input, Output, Renderer2} from '@angular/core';
-import {ToolbarAbstract} from '../toolbar.abstract';
 import {Platform} from '@angular/cdk/platform';
 import {Location} from '@angular/common';
 import {WINDOW} from '../../utils/window.service';
@@ -11,7 +10,7 @@ import {Router} from '@angular/router';
   selector: 'use-ide-toolbar-list',
   templateUrl: './use-ide-toolbar-list.template.html'
 })
-export class UseIdeToolbarListComponent extends ToolbarAbstract {
+export class UseIdeToolbarListComponent {
 
   @Input() public label: string;
   @Input() public showButtonBack: boolean = true;
@@ -76,7 +75,6 @@ export class UseIdeToolbarListComponent extends ToolbarAbstract {
               @Inject(WINDOW) public window: Window,
               @Inject(ElementRef) public elementRef,
               @Inject(Renderer2) public renderer) {
-    super(location, platform, window, elementRef, renderer);
   }
 
   /**
