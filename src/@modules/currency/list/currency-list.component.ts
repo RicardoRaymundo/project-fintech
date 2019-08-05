@@ -11,8 +11,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CurrencyListComponent implements OnInit {
 
-  constructor(public translateService: TranslateService,
-              public translateConfig: TranslateConfig,
+  constructor(@Inject(TranslateService) public translateService: TranslateService,
+              @Inject(TranslateConfig) public translateConfig: TranslateConfig,
               @Inject(ActivatedRoute) private _activatedRoute: ActivatedRoute) {
 
     // Implementa internacionalização
