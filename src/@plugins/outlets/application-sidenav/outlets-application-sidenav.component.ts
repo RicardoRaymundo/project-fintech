@@ -1,10 +1,7 @@
-import {Component, HostListener, Inject, OnInit, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
-import {MatBottomSheet, MatBottomSheetConfig} from '@angular/material';
+import {Component, HostListener, OnInit, TemplateRef, ViewChild, ViewContainerRef} from '@angular/core';
+import {MatBottomSheetConfig} from '@angular/material';
 import {UseIdeMenuSidenavGroupComponent} from '../../menu/sidenav/group/use-ide-menu-sidenav-group.component';
 import {UseIdeMenuSidenavItemInterface} from '../../menu/sidenav/item/use-ide-menu-sidenav-item.interface';
-import {Location} from '@angular/common';
-import {WINDOW} from '../../utils/window.service';
-import {Router} from '@angular/router';
 
 const defaultConfig = new MatBottomSheetConfig();
 
