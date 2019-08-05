@@ -1,3 +1,36 @@
+$background: #ffffff;
+$background-hover: #ededed;
+
+$font-size: 14px;
+$font-size-title: 15px;
+$font-size-subtitle: 12px;
+$font-size-group: 12px;
+$font-size-info: 11px;
+$font-size-button: 12px;
+
+$color-disabled: #bdbdbd;
+
+$color-title-content: #767676;
+$color-icon: #41619f;
+
+$color: #404040;
+$color-hover: #0085f0;
+$color-border: #e6e7e8;
+$color-icon: #767676;
+//$color-title: #767676;
+$color-title: #0085f0;
+$color-subtitle: #767676;
+$color-group: #767676;
+$color-info: #767676;
+
+
+@import "@plugins/toolbar/toolbar.styles";
+@import "@plugins/outlets/outlets.styles";
+@import "@plugins/menu/sidenav/menu-sidenav.styles";
+@import "@plugins/menu/tools/use-ide-menu-tools.styles";
+@import "@plugins/find/use-ide-find.styles";
+
+
 /* You can add global styles to this file, and also import other style files */
 //@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';

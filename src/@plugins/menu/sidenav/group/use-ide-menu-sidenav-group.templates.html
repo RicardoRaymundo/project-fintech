@@ -1,0 +1,19 @@
+<div *ngIf="buttonAddTitle"
+     [ngClass]="{'resource-add':opened, 'resource-add--close':!opened}">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <button mat-flat-button class="mat-elevation-z3" (click)="onButtonAdd()" style="border-radius: 50px!important; padding: 3px!important;">
+        <mat-icon aria-label="">add</mat-icon>
+        <span class="label">{{buttonAddTitle}}</span>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<use-ide-sidenav-menu-item *ngFor="let item of listData"
+                           [itemData]="item"
+                           [selected]="true"
+                           (clicked)="onClicked(item)"
+                           [itemOpened]="opened||openedTmp">
+</use-ide-sidenav-menu-item>
+

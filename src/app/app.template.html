@@ -1,3 +1,4 @@
+<!--
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>{{ 'TOOLBAR.TITLE' | translate}}</span>
@@ -11,19 +12,20 @@
 </div>
 
 <div style="padding: 20px">
-  <!-- translation: translation pipe -->
+
   <h1>{{ 'PAGE.TITLE' | translate }}</h1>
 
-  <!-- translation: directive (key as attribute)-->
+
   <p [translate]="'PAGE.TEXT'"></p>
 
-  <!-- translation: directive (key as content of element) -->
+
   <p translate>PAGE.TEXT</p>
 
-
-  <button mat-stroked-button color="primary" (click)="useLanguage('en')">en</button>
-  <button mat-stroked-button color="warn" (click)="useLanguage('pt')">pt</button>
+  <button mat-stroked-button color="primary" (click)="changeLanguage('en')">en</button>
+  <button mat-stroked-button color="warn" (click)="changeLanguage('pt')">pt</button>
 </div>
+-->
+
 
 <router-outlet></router-outlet>
 

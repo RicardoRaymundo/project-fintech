@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import {TranslateConfig} from '../@plugins/config/translate.config';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -10,18 +12,27 @@ import {TranslateService} from '@ngx-translate/core';
 export class AppComponent {
   title = 'project-fintech';
 
-  constructor(private translate: TranslateService) {
+  constructor(public translateService: TranslateService,
+              public translateConfig: TranslateConfig) {
 
-    translate.addLangs(['en', 'pt']);
-    translate.setDefaultLang('en');
-
-    const browserLang = translate.getBrowserLang();
-
-    console.log('browserLang', browserLang);
-    translate.use(browserLang.match(/en|pt/) ? browserLang : 'en');
+    // Implementa internacionalização
+    this._configTranslate();
   }
 
-  public useLanguage(language: string) {
-    this.translate.use(language);
+  public changeLanguage(language: string) {
+    this.translateService.use(this.translateConfig.use(language));
+  }
+
+  /**
+   * Configura componentes de internacionalização
+   */
+  private _configTranslate(): void {
+    const REGEX: any = /en|pt/;
+    this.translateService.addLangs(['en', 'pt']);
+    this.translateService.setDefaultLang(this.translateConfig.defaultLanguage);
+    this.translateService.use(this.translateConfig.activeLang(REGEX));
+    this.translateConfig.changeLang.subscribe(() => {
+      this.translateService.use(this.translateConfig.activeLang(REGEX));
+    });
   }
 }

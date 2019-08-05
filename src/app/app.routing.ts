@@ -1,14 +1,19 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {OutletsApplicationSidenavComponent} from '../@plugins/outlets/application-sidenav/outlets-application-sidenav.component';
 
+const routes: Routes = [
+  {
+    path: ':language',
+    component: OutletsApplicationSidenavComponent,
+    loadChildren: () => import('../@modules/currency/currency.module').then(m => m.CurrencyModule)
+  }
+];
 
-const routes: Routes = [{
-  path: '',
-  loadChildren: () => import('../@modules/currency/currency.module').then(m => m.CurrencyModule)
-}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRouting { }
+export class AppRouting {
+}

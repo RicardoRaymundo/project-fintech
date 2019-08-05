@@ -9,20 +9,9 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
-
-// AoT requires an exported function for factories
-export function XHttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
-
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new MultiTranslateHttpLoader(http, [
-    {prefix: './assets/translate/core/', suffix: '.json'},
-    {prefix: './assets/translate/shared/', suffix: '.json'},
-  ]);
-}
-
+import {OutletsModule} from '../@plugins/outlets/outlets.module';
+import {ToolbarModule} from '../@plugins/toolbar/toolbar.module';
+import {WINDOW_PROVIDERS} from '../@plugins/utils/window.service';
 
 @NgModule({
   declarations: [
@@ -36,14 +25,21 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (http: HttpClient) => {
+          return new MultiTranslateHttpLoader(http, [
+            {prefix: './assets/i18n/', suffix: '.json'}
+          ]);
+        },
         deps: [HttpClient]
       }
     }),
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+
+    ToolbarModule,
+    OutletsModule
   ],
-  providers: [],
+  providers: [WINDOW_PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule {

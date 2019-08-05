@@ -1,0 +1,64 @@
+<div class="button-menu-item--wrap">
+
+  <div [ngClass]="{'button-badge--mini':!itemOpened, 'button-badge':itemOpened}"
+       matBadge="94"
+       matBadgeColor="accent"
+       [matBadgePosition]="!itemOpened ? 'before' : 'after'"
+       [matBadgeHidden]="((!itemOpened && this.showBadge)||(!this.showBadge && !showMiniBadge))||(!this.showBadge && showMiniBadge)||showProgress">
+
+    <div class="badge--mini" *ngIf="(!itemOpened&&this.showBadge)"></div>
+
+    <div class="button-menu--item" [ngClass]="{'selected':!selected}">
+      <div class="button--wrap">
+        <button mat-flat-button class="button--circle"
+                [ngClass]="{'button--circle': !itemOpened, 'button--box': itemOpened}"
+                (click)="onClick()"
+                color="accent">
+          <mat-icon aria-label="">{{icon}}</mat-icon>
+          <span class="label">{{label}}</span>
+        </button>
+      </div>
+
+      <button #submenu mat-mini-fab class="button--submenu mat-elevation-z0" *ngIf="showSubMenu">
+        <mat-icon aria-label="">{{arrowIcon}}</mat-icon>
+      </button>
+
+
+      <button mat-mini-fab class="button-menu&#45;&#45;menu mat-elevation-z0"
+              [matMenuTriggerFor]="menu"
+              *ngIf="(itemOpened&&(showMenuOption&&(!showBadge||!showProgress)))">
+        <mat-icon aria-label="">more_vert</mat-icon>
+      </button>
+
+      <button #progress mat-mini-fab class="button-menu&#45;&#45;menu mat-elevation-z0"
+              *ngIf="(itemOpened&&(!showBadge&&showProgress))">
+        <div class="spinner--wrap">
+          <div class="spinner--background"></div>
+          <mat-progress-spinner
+            [diameter]="20"
+            [mode]="'determinate'"
+            [value]="80">
+          </mat-progress-spinner>
+        </div>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>flag</mat-icon>
+    Ativos
+  </button>
+  <button mat-menu-item>
+    <mat-icon>outlined_flag</mat-icon>
+    Inativos
+  </button>
+  <button mat-menu-item>
+    <mat-icon>add_circle_outline</mat-icon>
+    Adicionar
+  </button>
+</mat-menu>
+

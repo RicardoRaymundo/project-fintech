@@ -1,0 +1,8 @@
+.mat-mini-fab {
+  &[disabled]{
+    background: unset!important;
+    .mat-icon{
+      color: #cccccc!important;
+    }
+  }
+}
