@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 
@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CurrencyListComponent implements OnInit {
 
-  constructor(private _activatedRoute: ActivatedRoute) {
+  constructor(@Inject(ActivatedRoute) private _activatedRoute: ActivatedRoute) {
 
     // Implementa internacionalização
     // this._configTranslate();
