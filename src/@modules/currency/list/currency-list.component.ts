@@ -31,11 +31,11 @@ export class CurrencyListComponent implements OnInit {
    */
   private _configTranslate(): void {
     const REGEX: any = /en|pt/;
-    /*this.translateService.addLangs(['en', 'pt']);
+    this.translateService.addLangs(['en', 'pt']);
     this.translateService.setDefaultLang(this.translateConfig.defaultLanguage);
     this.translateService.use(this.translateConfig.activeLang(REGEX));
     this.translateConfig.changeLang.subscribe(() => {
       this.translateService.use(this.translateConfig.activeLang(REGEX));
-    });*/
+    });
   }
 }
