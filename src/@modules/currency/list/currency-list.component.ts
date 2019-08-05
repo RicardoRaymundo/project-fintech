@@ -11,7 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CurrencyListComponent implements OnInit {
 
-  /*constructor(public translateService: TranslateService,
+  constructor(public translateService: TranslateService,
               public translateConfig: TranslateConfig,
               private _activatedRoute: ActivatedRoute) {
 
@@ -21,7 +21,7 @@ export class CurrencyListComponent implements OnInit {
     this._activatedRoute.params.subscribe((params: any) => {
       console.log('PARAMS', params);
     });
-  }*/
+  }
 
   ngOnInit() {
   }
