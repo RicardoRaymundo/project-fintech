@@ -2,12 +2,12 @@ import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angul
 
 
 @Component({
-  selector: 'toolbar-header-application',
-  templateUrl: './toolbar-header-application.template.html',
-  styleUrls: ['./toolbar-header-application.styles.scss'],
+  selector: 'toolbar-application',
+  templateUrl: './toolbar-application.template.html',
+  styleUrls: ['./toolbar-application.styles.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ToolbarHeaderApplicationComponent implements OnInit {
+export class ToolbarApplicationComponent implements OnInit {
   public userAvatar: string = 'https://angular.io/generated/images/bios/julie-ralph.jpg';
   public userName: string = 'Israel Agoeiro';
 

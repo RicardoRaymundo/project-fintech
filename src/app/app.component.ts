@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
     this.translateService.setDefaultLang(this.translateConfig.defaultLanguage);
     this.translateService.use(this.translateConfig.activeLang(REGEX));
     this.translateConfig.changeLang.subscribe(() => {
+      console.log('AAAAAAAAAAAAAAAA');
       this.translateService.use(this.translateConfig.activeLang(REGEX));
     });
   }

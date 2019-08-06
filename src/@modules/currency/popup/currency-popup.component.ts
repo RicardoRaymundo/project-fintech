@@ -10,7 +10,7 @@ import * as schema from './currency.schema.json';
 export class CurrencyPopupComponent implements OnInit {
 
   constructor() {
-    console.log(schema);
+    // console.log(schema);
   }
 
   ngOnInit() {

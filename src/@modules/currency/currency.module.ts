@@ -7,8 +7,8 @@ import {CurrencyPopupComponent} from './popup/currency-popup.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
-import {MatToolbarModule} from '@angular/material';
 import {ToolbarModule} from '../../@plugins/toolbar/toolbar.module';
+import {CurrencyToolbarComponent} from './toolbar/currency-toolbar.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -18,11 +18,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 
-
 @NgModule({
   declarations: [
     CurrencyListComponent,
-    CurrencyPopupComponent
+    CurrencyPopupComponent,
+    CurrencyToolbarComponent
   ],
   imports: [
     CommonModule,

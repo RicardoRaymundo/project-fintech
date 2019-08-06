@@ -1,0 +1,114 @@
+<mat-toolbar class="sub-menu">
+  <mat-toolbar-row>
+    <button #btnBack class="mat-elevation-z0"
+            mat-mini-fab
+            name="back"
+            matTooltip="Voltar"
+            (click)="onBack($event)">
+      <mat-icon aria-label="">arrow_back</mat-icon>
+    </button>
+
+    <h2 style="padding-right: 15px">{{label}}</h2>
+
+    <!--<mat-divider [vertical]="true"></mat-divider>
+
+    <button mat-mini-fab class="mat-elevation-z0" (click)="onEdit()">
+      <mat-icon aria-label="">edit</mat-icon>
+    </button>
+
+    <button mat-mini-fab class="mat-elevation-z0">
+      <mat-icon aria-label="">delete</mat-icon>
+    </button>
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">archive</mat-icon>
+    </button>
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">report</mat-icon>
+    </button>
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">markunread</mat-icon>
+    </button>
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">watch_later</mat-icon>
+    </button>
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">move_to_inbox</mat-icon>
+    </button>
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">label</mat-icon>
+    </button>
+
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">more_vert</mat-icon>
+    </button>-->
+
+
+    <span class="spacer"></span>
+
+    <button mat-flat-button color="primary">
+      <mat-icon fontSet="material-icons-outlined">monetization_on</mat-icon>
+      Adicionar Moedas
+    </button>
+
+    <!--<button mat-mini-fab class="mat-elevation-z0">
+      <mat-icon aria-label="">save</mat-icon>
+    </button>-->
+
+    <!--<button mat-mini-fab class="mat-elevation-z0" (click)="onPrint()">
+      <mat-icon aria-label="">print</mat-icon>
+    </button>-->
+
+    <!--<button mat-mini-fab class="mat-elevation-z0">
+      <mat-icon aria-label="">open_in_new</mat-icon>
+    </button>-->
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <!--<button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">chevron_left</mat-icon>
+    </button>
+
+    <button mat-mini-fab class="mat-elevation-z0" disabled>
+      <mat-icon aria-label="">chevron_right</mat-icon>
+    </button>-->
+
+    <mat-paginator [length]="100"
+                   hidePageSize="true"
+                   [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+
+    <!--<button mat-mini-fab class="mat-elevation-z0" [matMenuTriggerFor]="menu" disabled>
+      <mat-icon aria-label="">settings</mat-icon>
+    </button>-->
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="onClick('outline')">
+    outline
+  </button>
+  <button mat-menu-item (click)="onClick('standard')">
+    standard
+  </button>
+  <button mat-menu-item (click)="onClick('fill')">
+    fill
+  </button>
+  <button mat-menu-item (click)="onClick('legacy')">
+    legacy
+  </button>
+</mat-menu>

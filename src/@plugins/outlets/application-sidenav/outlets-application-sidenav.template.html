@@ -17,7 +17,7 @@
 
       <mat-sidenav-content>
         <!--Barra de menu principal-->
-        <toolbar-header-application (menu)="onToggleSideContent()"></toolbar-header-application>
+        <toolbar-application (menu)="onToggleSideContent()"></toolbar-application>
 
         <mat-sidenav-container class="content--wrap" [hasBackdrop]="false">
           <mat-sidenav
@@ -26,7 +26,8 @@
             [opened]="menuOpenedControl"
             (opened)="onOpenedSideMenu()"
             (closed)="onClosedSideMenu()"
-            [fixedInViewport]="true" [fixedTopGap]="65"
+            [fixedInViewport]="true"
+            [fixedTopGap]="65"
             [fixedBottomGap]="0">
 
             <use-ide-menu-sidenav-group [opened]="menuOpened"
@@ -49,8 +50,6 @@
         </mat-sidenav-container>
       </mat-sidenav-content>
     </mat-sidenav-container>
-
-
 
     <ng-template #bottomSheet let-bottomSheetRef="bottomSheetRef" class="mat-elevation-z0">
       <mat-nav-list>
