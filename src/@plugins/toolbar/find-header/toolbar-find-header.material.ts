@@ -16,5 +16,5 @@ const MODULES: Array<any> = [
   ],
   exports: [...MODULES]
 })
-export class UseIdeFindMaterial {
+export class ToolbarFindHeaderMaterial {
 }

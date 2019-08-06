@@ -1,9 +1,7 @@
-// @import 'cadastro/_scss/variables';
-
-
-.use-ide-find-main {
+.toolbar-find-header {
   padding-right: 15vw;
-  .use-wrap {
+
+  .wrap {
     background: #f5f5f5;
     width: 100%;
     max-width: unset;
@@ -15,6 +13,11 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
     border: 1px solid #f5f5f5;
+
+    mat-form-field {
+      width: 100%;
+    }
+
     &:hover {
       background: white;
       border: 1px solid #e0e0e0;
@@ -25,22 +28,27 @@
 
     .mat-form-field-infix {
       width: unset;
-      border-top-width: 2px;
+      border-top-width: 0;
       padding-left: 10px;
       padding-top: 10px;
     }
+
     .mat-form-field-underline {
       height: 0 !important;
     }
+
     .mat-mini-fab {
       background: transparent;
+
       &:hover {
         background: #ededed;
       }
+
       .mat-icon {
         color: #767676;
         font-size: 22px;
       }
+
       margin-bottom: 5px;
     }
   }

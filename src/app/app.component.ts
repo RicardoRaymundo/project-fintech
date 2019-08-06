@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {TranslateConfig} from '../@plugins/config/translate.config';
 import {ActivatedRoute} from '@angular/router';
@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './app.template.html',
   styleUrls: ['./app.styles.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'project-fintech';
 
   constructor(@Inject(TranslateService) public translateService: TranslateService,
@@ -18,7 +18,11 @@ export class AppComponent {
 
     // Implementa internacionalização
     this._configTranslate();
-   }
+  }
+
+  public ngOnInit(): void {
+
+  }
 
   public changeLanguage(language: string) {
     this.translateService.use(this.translateConfig.use(language));

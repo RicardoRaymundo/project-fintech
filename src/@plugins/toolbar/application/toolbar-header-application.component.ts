@@ -1,15 +1,15 @@
-import {Component, ElementRef, EventEmitter, Inject, OnInit, Output, Renderer2} from '@angular/core';
-import {Router} from '@angular/router';
-import {Location} from '@angular/common';
-import {Platform} from '@angular/cdk/platform';
-import {WINDOW} from '../../../utils/window.service';
+import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
 
 
 @Component({
   selector: 'toolbar-header-application',
-  templateUrl: './toolbar-header-application.template.html'
+  templateUrl: './toolbar-header-application.template.html',
+  styleUrls: ['./toolbar-header-application.styles.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ToolbarHeaderApplicationComponent implements OnInit {
+  public userAvatar: string = 'https://angular.io/generated/images/bios/julie-ralph.jpg';
+  public userName: string = 'Israel Agoeiro';
 
   @Output() public menu: EventEmitter<any> = new EventEmitter();
 

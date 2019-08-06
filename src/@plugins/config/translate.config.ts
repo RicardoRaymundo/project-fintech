@@ -6,7 +6,7 @@ import {TranslateService} from '@ngx-translate/core';
   providedIn: 'root'
 })
 export class TranslateConfig {
-  @Output() public changeLang: EventEmitter<any> = new EventEmitter();
+  @Output() public changeLang: EventEmitter<string> = new EventEmitter();
   private _activeLang: string;
 
   constructor(@Inject(TranslateService) public translateService: TranslateService) {
@@ -25,8 +25,8 @@ export class TranslateConfig {
    */
   public use(language: string): string {
     this._activeLang = language;
-    this.changeLang.emit();
     localStorage.setItem('i18n', language);
+    this.changeLang.emit(language);
     return this._activeLang;
   }
 

@@ -17,13 +17,10 @@ export class CurrencyListComponent implements OnInit {
 
     // Implementa internacionalização
     this._configTranslate();
-
-    this._activatedRoute.params.subscribe((params: any) => {
-      console.log('PARAMS', params);
-    });
   }
 
   ngOnInit() {
+
   }
 
   /**
@@ -34,8 +31,8 @@ export class CurrencyListComponent implements OnInit {
     this.translateService.addLangs(['en', 'pt']);
     this.translateService.setDefaultLang(this.translateConfig.defaultLanguage);
     this.translateService.use(this.translateConfig.activeLang(REGEX));
-    this.translateConfig.changeLang.subscribe(() => {
-      this.translateService.use(this.translateConfig.activeLang(REGEX));
+    this.translateConfig.changeLang.subscribe((language) => {
+      this.translateService.use(language);
     });
   }
 }

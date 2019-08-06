@@ -5,20 +5,20 @@ import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 
 
 @Component({
-  selector: 'use-ide-find-main',
-  templateUrl: './use-ide-find-main.template.html',
-  styleUrls: ['../use-ide-find.styles.scss'],
+  selector: 'find-header',
+  templateUrl: './toolbar-find-header.template.html',
+  styleUrls: ['./toolbar-find-header.styles.scss'],
   encapsulation: ViewEncapsulation.None
 })
 
-export class UseIdeFindMainComponent extends UseComponentAbstract implements OnInit {
+export class ToolbarFindHeaderComponent extends UseComponentAbstract implements OnInit {
 
   /* Variável que recebe o valor da função handleFilterChange */
   private filterString: Subject<string> = new Subject<string>();
 
   /* Função que recebe o valor digitado e coloca em nosso Subject */
   public onFilterChange(value: any) {
-    //console.log('VALUE', value);
+    // console.log('VALUE', value);
     this.filterString.next(value);
   }
 

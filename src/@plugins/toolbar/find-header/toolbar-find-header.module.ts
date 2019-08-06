@@ -1,18 +1,18 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {UseIdeFindMainComponent} from './use-ide-find-main.component';
+import {ToolbarFindHeaderComponent} from './toolbar-find-header.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {UseIdeFindMaterial} from '../use-ide-find.material';
+import {ToolbarFindHeaderMaterial} from './toolbar-find-header.material';
 
 const COMPONENTS: Array<any> = [
-  UseIdeFindMainComponent
+  ToolbarFindHeaderComponent
 ];
 
 const MODULES: Array<any> = [
   CommonModule,
   FormsModule,
   ReactiveFormsModule,
-  UseIdeFindMaterial
+  ToolbarFindHeaderMaterial
 ];
 
 
@@ -23,5 +23,5 @@ const MODULES: Array<any> = [
   exports: [...COMPONENTS, ...MODULES]
 })
 
-export class UseIdeFindMainModule {
+export class ToolbarFindHeaderModule {
 }

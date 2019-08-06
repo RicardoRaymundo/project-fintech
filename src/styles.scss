@@ -24,11 +24,10 @@ $color-group: #767676;
 $color-info: #767676;
 
 
-@import "@plugins/toolbar/toolbar.styles";
 @import "@plugins/outlets/outlets.styles";
 @import "@plugins/menu/sidenav/menu-sidenav.styles";
 @import "@plugins/menu/tools/use-ide-menu-tools.styles";
-@import "@plugins/find/use-ide-find.styles";
+@import "@plugins/toolbar/find-header/toolbar-find-header.styles";
 
 
 /* You can add global styles to this file, and also import other style files */
@@ -42,7 +41,6 @@ $color-info: #767676;
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
-
 
 
 /* For use in src/lib/core/theming/_palette.scss */
@@ -113,17 +111,14 @@ $md-pallet1: (
 );
 
 
-
-
-
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $candy-app-primary: mat-palette($mat-amber);
-$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$candy-app-warn:    mat-palette($mat-red);
+$candy-app-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
@@ -135,19 +130,82 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 
 // Define the theme.
 $candy-app-primary: mat-palette($md-pallet1, 50, A100, A400);
-$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
-$candy-app-theme-a:   mat-light-theme($candy-app-primary, $candy-app-accent);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
 
-// Include the theme styles for only specified components.
-@include mat-core-theme($candy-app-theme-a);
-@include mat-button-theme($candy-app-theme-a);
-@include mat-checkbox-theme($candy-app-theme-a);
 
-body{
+/* For use in src/lib/core/theming/_palette.scss */
+$md-palette-client: (
+  50 : #f5f5f5,
+  100 : #f0b3b3,
+  200 : #e68080,
+  300 : #db4d4d,
+  400 : #d42626,
+  500 : #cc0000,
+  600 : #c70000,
+  700 : #c00000,
+  800 : #b90000,
+  900 : #ad0000,
+  A100 : #ffd7d7,
+  A200 : #ffa4a4,
+  A400 : #ff7171,
+  A700 : #ff5858,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+
+$palette-gray: mat-palette($mat-gray);
+$palette-client-primary: mat-palette($md-palette-client, 50, A100, A400);
+$candy-app-theme-color: mat-dark-theme($palette-client-primary, $candy-app-accent);
+
+body {
   padding: 0;
   margin: 0;
 }
 
-.alternate-button {
-  @include mat-button-theme($candy-app-theme-a);
+
+//@include mat-button-theme($candy-app-theme-color);
+
+.mat-toolbar {
+  background: #ffffff;
+  border-bottom: 1px solid mat-color($palette-gray, 200);
+
+  .mat-toolbar-row {
+    padding: 8px;
+    .mat-fab, .mat-mini-fab {
+      background: unset;
+
+      &:hover {
+        background: mat-color($palette-client-primary, 50) !important;
+      }
+
+      .mat-icon {
+        color: mat-color($palette-client-primary, 700) !important;
+      }
+    }
+  }
+
+  .user-avatar {
+    .mat-icon {
+      color: mat-color($palette-client-primary, 500);
+    }
+  }
 }
+
+
+
+

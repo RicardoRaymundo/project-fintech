@@ -11,6 +11,8 @@ import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
 import {OutletsModule} from '../@plugins/outlets/outlets.module';
 import {ToolbarModule} from '../@plugins/toolbar/toolbar.module';
 import {WINDOW_PROVIDERS} from '../@plugins/utils/window.service';
+import {PluginErrorModule} from '../@plugins/error/plugin-error.module';
+import {PluginPlatformModule} from '../@plugins/plugin-platform.module';
 
 
 @NgModule({
@@ -33,6 +35,9 @@ import {WINDOW_PROVIDERS} from '../@plugins/utils/window.service';
         deps: [HttpClient]
       }
     }),
+
+    PluginPlatformModule,
+
     MatToolbarModule,
     MatButtonModule,
 

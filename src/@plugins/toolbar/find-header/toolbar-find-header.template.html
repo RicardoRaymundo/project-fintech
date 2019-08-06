@@ -1,0 +1,18 @@
+<div class="toolbar-find-header">
+  <div class="wrap">
+    <form>
+      <mat-form-field>
+
+        <button mat-mini-fab matPrefix class="mat-elevation-z0">
+          <mat-icon aria-label="">search</mat-icon>
+        </button>
+        <button mat-mini-fab matSuffix class="mat-elevation-z0">
+          <mat-icon aria-label="">arrow_drop_down</mat-icon>
+        </button>
+
+        <input matInput (keyup)="onFilterChange($event)">
+
+      </mat-form-field>
+    </form>
+  </div>
+</div>

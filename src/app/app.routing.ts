@@ -4,7 +4,7 @@ import {OutletsApplicationSidenavComponent} from '../@plugins/outlets/applicatio
 
 const routes: Routes = [
   {
-    path: ':language',
+    path: '',
     component: OutletsApplicationSidenavComponent,
     loadChildren: () => import('../@modules/currency/currency.module').then(m => m.CurrencyModule)
   }
