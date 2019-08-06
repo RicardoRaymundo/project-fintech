@@ -1,4 +1,4 @@
-import {EventEmitter, Injectable, Output} from '@angular/core';
+import {EventEmitter, Inject, Injectable, Output} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 
 
@@ -9,7 +9,7 @@ export class TranslateConfig {
   @Output() public changeLang: EventEmitter<any> = new EventEmitter();
   private _activeLang: string;
 
-  constructor(private _translate: TranslateService) {
+  constructor(@Inject(TranslateService) public translateService: TranslateService) {
   }
 
   /**
@@ -45,7 +45,7 @@ export class TranslateConfig {
       if (language) {
         this._activeLang = language;
       } else {
-        const browserLang = this._translate.getBrowserLang();
+        const browserLang = this.translateService.getBrowserLang();
         this._activeLang = (browserLang.match(regex) ? browserLang : this.defaultLanguage);
       }
     }
