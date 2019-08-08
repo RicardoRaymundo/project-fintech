@@ -12,7 +12,7 @@ export class DialogOptionComponent {
   public btnConfirmLabel: string = 'OK';
   public btnOptionLabel: string = 'Option';
 
-  constructor(public dialogRef: MatDialogRef<DialogOptionComponent>,
+  constructor(@Inject(MatDialogRef) public dialogRef: MatDialogRef<DialogOptionComponent>,
               @Inject(MAT_DIALOG_DATA) public data: DialogOptionInterface) {
 
     this._config();

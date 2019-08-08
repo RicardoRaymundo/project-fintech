@@ -12,7 +12,7 @@ export class CurrencyDialogComponent {
   public btnCancelLabel: string = 'Cancelar';
   public btnConfirmLabel: string = 'OK';
 
-  constructor(public dialogRef: MatDialogRef<CurrencyDialogComponent>,
+  constructor(@Inject(MatDialogRef) public dialogRef: MatDialogRef<CurrencyDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: CurrencyDialogInterface) {
 
     this._config();
