@@ -2,9 +2,20 @@
   <span>{{data.title}}</span>
 </h2>
 
-<mat-dialog-content>
-  <p>{{data.message}}</p>
-  <p *ngIf="data.complement">{{data.complement}}</p>
+<mat-dialog-content class="dialog-delete">
+  <div class="use-grid">
+    <div class="use-row">
+      <div class="col-xs-3">
+        <mat-icon fontSet="material-icons-outlined">delete</mat-icon>
+      </div>
+      <div class="col-xs-9">
+        <p>{{data.message}}</p>
+        <p *ngIf="data.complement">{{data.complement}}</p>
+      </div>
+    </div>
+  </div>
+
+
 </mat-dialog-content>
 
 <mat-dialog-actions>

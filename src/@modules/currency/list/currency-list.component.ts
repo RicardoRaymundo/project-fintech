@@ -2,7 +2,7 @@ import {Component, Inject, OnInit, ViewChild, ViewEncapsulation} from '@angular/
 import {TranslateService} from '@ngx-translate/core';
 import {TranslateConfig} from '../../../@plugins/config/translate.config';
 import {ActivatedRoute} from '@angular/router';
-import {MatDialog, MatPaginator, MatSort} from '@angular/material';
+import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {exist} from '@use-pattern/utils';
 import {DialogService} from '../../../@plugins/dialog/dialog.service';
 import {CurrencyDialogInterface} from '../dialog/currency-dialog.interface';
@@ -33,8 +33,8 @@ export class CurrencyListComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) public sort: MatSort;
 
-  displayedColumns: string[] = ['name', 'alphabetic_code', 'menu'];
-  dataSource = ELEMENT_DATA;
+  public displayedColumns: string[] = ['name', 'alphabetic_code', 'menu'];
+  public dataSource = new MatTableDataSource(ELEMENT_DATA);
   public selectedIndex: string | any;
   public selectedItem: any;
 
@@ -50,6 +50,7 @@ export class CurrencyListComponent implements OnInit {
 
   public ngOnInit(): void {
     this.paginator._intl.itemsPerPageLabel = 'Items por página';
+    this.dataSource.sort = this.sort;
   }
 
   public onHighlight(item: any): void {
@@ -100,6 +101,7 @@ export class CurrencyListComponent implements OnInit {
     this.openDialog({
       title: 'Editar Moeda',
       message: `Tem certeza de que deseja mover o e-mail '${item.address}' para a Lixeira?`,
+      complement: 'Bitcoin (BTC)',
       btnConfirmLabel: 'Salvar'
     }, () => {
       console.log('ADD ITEM');
@@ -112,12 +114,13 @@ export class CurrencyListComponent implements OnInit {
    * @param item
    */
   public onRemoveItem(): void {
-    const item: any = {address: 'addr'};
+    const item: any = {address: 'Bitcoin'};
 
     // Abre janela de dialogo para confirmar exclusão
     this.useIdeDialog.openConfirm({
-      title: 'Excluir e-mail',
-      message: `Tem certeza de que deseja mover o e-mail '${item.address}' para a Lixeira?`,
+      title: 'Excluir Moeda',
+      message: `Tem certeza de que deseja mover a moeda '${item.address}' para a Lixeira?`,
+      complement: 'Bitcoin (BTC)',
       btnConfirmLabel: 'Remover'
     }, () => {
       this.remove(item);

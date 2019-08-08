@@ -5,10 +5,12 @@ import {
   MatDialogModule,
   MatDividerModule,
   MatFormFieldModule,
-  MatIconModule, MatInputModule,
+  MatIconModule,
+  MatInputModule,
   MatMenuModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
+  MatSortModule,
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
@@ -25,7 +27,8 @@ const MODULES: Array<any> = [
   MatPaginatorModule,
   MatProgressSpinnerModule,
   MatTableModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatSortModule
 ];
 
 

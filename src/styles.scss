@@ -1,39 +1,11 @@
-/*$background: #ffffff;
-$background-hover: #ededed;
-
-$font-size: 14px;
-$font-size-title: 15px;
-$font-size-subtitle: 12px;
-$font-size-group: 12px;
-$font-size-info: 11px;
-$font-size-button: 12px;
-
-$color-disabled: #bdbdbd;
-
-$color-title-content: #767676;
-$color-icon: #41619f;
-
-$color: #404040;
-$color-hover: #0085f0;
-$color-border: #e6e7e8;
-$color-icon: #767676;
-//$color-title: #767676;
-$color-title: #0085f0;
-$color-subtitle: #767676;
-$color-group: #767676;
-$color-info: #767676;*/
-
-
+@import "~@use-pattern/grid-layout/styles.css";
 @import "@plugins/outlets/outlets.styles";
 @import "@plugins/menu/sidenav/menu-sidenav.styles";
 @import "@plugins/menu/tools/use-ide-menu-tools.styles";
 @import "@plugins/toolbar/find-header/toolbar-find-header.styles";
-
-
 /* You can add global styles to this file, and also import other style files */
 //@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
 
@@ -96,8 +68,6 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 @include angular-material-theme($candy-app-theme);
 
 
-
-
 $palette-gray: mat-palette($mat-gray);
 $palette-client-primary: mat-palette($md-palette-client, 50, A100, A400);
 $candy-app-theme-color: mat-dark-theme($palette-client-primary, $candy-app-accent);
@@ -138,9 +108,9 @@ body {
   }
 
   &.sub-menu {
-    max-height: 45px!important;
+    max-height: 45px !important;
 
-    h2{
+    h2 {
       padding-right: 15px;
       padding-left: 5px;
       font-weight: 300;
@@ -148,13 +118,15 @@ body {
       color: mat-color($palette-client-primary, 900);
     }
 
-    &.mat-toolbar-multiple-rows{
-      min-height: 45px!important;
+    &.mat-toolbar-multiple-rows {
+      min-height: 45px !important;
     }
+
     .mat-toolbar-row {
       padding: 2px;
       color: mat-color($palette-gray, 600);
       font-weight: lighter;
+
       .mat-icon {
         color: mat-color($palette-gray, 600);
       }
@@ -163,16 +135,18 @@ body {
     .mat-paginator-container {
       min-height: unset;
     }
+
     .mat-paginator-range-label {
       margin: 0 10px 0 15px;
     }
 
-    .mat-flat-button{
+    .mat-flat-button {
       line-height: 31px;
       color: #ffffff;
       font-size: 12px;
-      background:  mat-color($palette-client-primary, 900);
+      background: mat-color($palette-client-primary, 900);
       padding-right: 20px;
+
       .mat-icon {
         color: #ffffff;
       }
@@ -180,36 +154,41 @@ body {
   }
 }
 
-table{
+table {
   width: 100%;
+
   tr.mat-header-row {
     height: 40px;
     background: mat-color($palette-gray, 50);
   }
+
   tr.mat-footer-row, tr.mat-row {
     height: 35px;
   }
+
   td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:last-of-type {
     width: 32px;
-    padding-right: 4px!important;
+    padding-right: 4px !important;
   }
 
   td.mat-cell, td.mat-footer-cell {
-    border-bottom-style:unset;
+    border-bottom-style: unset;
   }
 
   .mat-fab, .mat-mini-fab {
-    background: none!important;
+    background: none !important;
+
     &:hover {
       background: mat-color($palette-client-primary, 50) !important;
     }
+
     .mat-icon {
       color: mat-color($palette-gray, 600)
     }
   }
 }
 
-.paginator-container{
+.paginator-container {
   border-bottom: 1px solid mat-color($palette-gray, 200);
   border-top: 1px solid mat-color($palette-gray, 200);
 }
@@ -231,24 +210,25 @@ table{
 
 
 .highlight {
-  background: mat-color($palette-client-primary, 900)!important;
+  background: mat-color($palette-client-primary, 900) !important;
 
   .mat-cell {
     color: #ffffff;
   }
 
   .mat-checkbox-frame {
-    border-color: rgba(255, 255, 255, 0.99)!important;
+    border-color: rgba(255, 255, 255, 0.99) !important;
   }
 
   .mat-icon {
-    color: #ffffff!important;
+    color: #ffffff !important;
   }
 
   .mat-fab, .mat-mini-fab {
     &:hover {
       background: mat-color($palette-client-primary, 700) !important;
     }
+
     .mat-icon {
       color: mat-color($palette-gray, 600);
     }
@@ -256,20 +236,22 @@ table{
 }
 
 .mat-menu-panel {
-  min-width: 130px!important;
-  border-radius: unset!important;
+  min-width: 130px !important;
+  border-radius: unset !important;
 
   .mat-menu-content:not(:empty) {
     padding: 0;
   }
+
   .mat-menu-item {
-    line-height: 38px!important;
-    height: 38px!important;
+    line-height: 38px !important;
+    height: 38px !important;
   }
 
   .mat-menu-item:hover:not([disabled]), .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item-highlighted:not([disabled]) {
-    background: mat-color($palette-client-primary, 900)!important;
+    background: mat-color($palette-client-primary, 900) !important;
     color: white;
+
     .mat-icon {
       color: white;
     }
@@ -282,36 +264,49 @@ table{
 }
 
 
-
-
 .mat-dialog-container {
-  padding: 20px!important;
-  padding-top: 0!important;
-  padding-bottom: 25px!important;
-  border-radius: 0!important;
+  padding: 20px !important;
+  padding-top: 0 !important;
+  padding-bottom: 25px !important;
+  border-radius: 0 !important;
   border-bottom: 1px solid mat-color($palette-gray, 200);
-  overflow: hidden!important;
-  h2{
+  overflow: hidden !important;
+
+  h2 {
     margin-top: 7px;
+
     span {
       border-top: 3px solid mat-color($palette-client-primary, 900) !important;
       padding-top: 8px;
       font-weight: 300;
     }
   }
+
   .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
-    min-width: 64px!important;
-    line-height: 28px!important;
-    padding: 0 22px!important;
-    border-radius: 3px!important;
-    font-size: 12px!important;
+    min-width: 64px !important;
+    line-height: 28px !important;
+    padding: 0 22px !important;
+    border-radius: 3px !important;
+    font-size: 12px !important;
     margin-left: 12px;
   }
 
-  form{
+  form {
     font-size: 14px;
-    .mat-form-field{
+
+    .mat-form-field {
       width: 100%;
+    }
+  }
+
+
+}
+
+.mat-dialog-content{
+  &.dialog-delete {
+    .mat-icon{
+      color: mat-color($palette-client-primary, 100) !important;
+      font-size: 120px;
     }
   }
 }
