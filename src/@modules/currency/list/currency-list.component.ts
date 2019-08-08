@@ -2,30 +2,24 @@ import {Component, Inject, OnInit, ViewChild, ViewEncapsulation} from '@angular/
 import {TranslateService} from '@ngx-translate/core';
 import {TranslateConfig} from '../../../@plugins/config/translate.config';
 import {ActivatedRoute} from '@angular/router';
-import {MatPaginator, MatSort} from '@angular/material';
+import {MatDialog, MatPaginator, MatSort} from '@angular/material';
 import {exist} from '@use-pattern/utils';
+import {DialogService} from '../../../@plugins/dialog/dialog.service';
+import {CurrencyDialogInterface} from '../dialog/currency-dialog.interface';
+import {CurrencyDialogComponent} from '../dialog/currency-dialog.component';
 
 
 export interface PeriodicElement {
   _id: string;
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  alphabetic_code: string;
 }
 
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {_id: '1', position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {_id: '2', position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {_id: '3', position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {_id: '4', position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {_id: '5', position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {_id: '6', position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {_id: '7', position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {_id: '8', position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {_id: '9', position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {_id: '10', position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {_id: '1', name: 'Bitcoin', alphabetic_code: 'BTC'},
+  {_id: '2', name: 'Dolar', alphabetic_code: 'USD'},
+  {_id: '3', name: 'Tether', alphabetic_code: 'USDT'}
 ];
 
 
@@ -39,14 +33,16 @@ export class CurrencyListComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) public sort: MatSort;
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'star'];
+  displayedColumns: string[] = ['name', 'alphabetic_code', 'menu'];
   dataSource = ELEMENT_DATA;
   public selectedIndex: string | any;
   public selectedItem: any;
 
   constructor(@Inject(TranslateService) public translateService: TranslateService,
               @Inject(TranslateConfig) public translateConfig: TranslateConfig,
-              @Inject(ActivatedRoute) private _activatedRoute: ActivatedRoute) {
+              @Inject(ActivatedRoute) private _activatedRoute: ActivatedRoute,
+              @Inject(MatDialog) public dialog,
+              public useIdeDialog: DialogService) {
 
     // Implementa internacionalização
     this._configTranslate();
@@ -64,6 +60,92 @@ export class CurrencyListComponent implements OnInit {
       // Registra o item selecionado
       this.selectedItem = item;
     }
+  }
+
+  /**
+   * Remove item da lista
+   * @param item
+   */
+  public remove(item: any): void {
+    // const index: number = this.listData.indexOf(item);
+    // this.listData.splice(index, 1);
+    // this.showHideEditor(false);
+  }
+
+  /**
+   * Abre popup para adicionar moeda
+   *
+   * @param item
+   */
+  public onAddItem(): void {
+    const item: any = {address: 'addr'};
+    // Abre janela de dialogo para confirmar exclusão
+    this.openDialog({
+      title: 'Adicionar Moeda',
+      message: `Tem certeza de que deseja mover o e-mail '${item.address}' para a Lixeira?`,
+      btnConfirmLabel: 'Salvar'
+    }, () => {
+      console.log('ADD ITEM');
+    });
+  }
+
+  /**
+   * Abre popup para adicionar moeda
+   *
+   * @param item
+   */
+  public onEditItem(): void {
+    const item: any = {address: 'addr'};
+    // Abre janela de dialogo para confirmar exclusão
+    this.openDialog({
+      title: 'Editar Moeda',
+      message: `Tem certeza de que deseja mover o e-mail '${item.address}' para a Lixeira?`,
+      btnConfirmLabel: 'Salvar'
+    }, () => {
+      console.log('ADD ITEM');
+    });
+  }
+
+  /**
+   * Abre popup para confirmar exclusão
+   *
+   * @param item
+   */
+  public onRemoveItem(): void {
+    const item: any = {address: 'addr'};
+
+    // Abre janela de dialogo para confirmar exclusão
+    this.useIdeDialog.openConfirm({
+      title: 'Excluir e-mail',
+      message: `Tem certeza de que deseja mover o e-mail '${item.address}' para a Lixeira?`,
+      btnConfirmLabel: 'Remover'
+    }, () => {
+      this.remove(item);
+    });
+  }
+
+  public openDialog(message: CurrencyDialogInterface, confirm: () => void, cancel?: () => void): void {
+    const dialogRef = this.dialog.open(CurrencyDialogComponent, {
+      data: message,
+      minWidth: '450px'
+    });
+
+    dialogRef.afterClosed().subscribe((res: { option: string }): void => {
+      if (res) {
+        switch (res.option) {
+          case 'confirm':
+            if (confirm) {
+              confirm();
+            }
+            break;
+          case 'cancel':
+            if (cancel) {
+              cancel();
+            }
+            break;
+        }
+      }
+    });
   }
 
   /**

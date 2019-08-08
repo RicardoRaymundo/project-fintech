@@ -8,7 +8,7 @@ import {Location} from '@angular/common';
 })
 export class CurrencyToolbarComponent implements OnInit {
 
-  @Output() public menu: EventEmitter<any> = new EventEmitter();
+  @Output() public addItem: EventEmitter<any> = new EventEmitter();
   @Output() public back: EventEmitter<any> = new EventEmitter();
 
   @Input() public label: string;
@@ -31,20 +31,8 @@ export class CurrencyToolbarComponent implements OnInit {
 
   }
 
-  public onToggleSideContent(): void {
-    this.menu.emit();
-  }
-
-  public onEdit(): void {
-    this.edit.emit();
-  }
-
-  public onPrint(): void {
-    this.print.emit();
-  }
-
-  public onClick(value: string): void {
-
+  public onAddItem(): void {
+    this.addItem.emit();
   }
 
   /**

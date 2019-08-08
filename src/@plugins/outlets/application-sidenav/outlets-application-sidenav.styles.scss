@@ -67,17 +67,22 @@
     .content--wrap {
       //background: #00ce13;
       .menu-opened {
-        min-width: 256px;
-        width: 256px;
+        //min-width: 256px;
+        min-width: 210px;
+        width: 210px;
         background: #ffffff;
         border-right: 1px solid #f1f3f4;
       }
 
       .menu-closed {
-        min-width: 72px;
-        width: 72px;
+        min-width: 60px;
+        width: 60px;
         background: #ffffff;
         border-right: 1px solid #f1f3f4;
+
+        .sidenav-submenu .mat-flat-button {
+          padding: 0 15px !important;
+        }
       }
 
       .tmp-menu-opened {

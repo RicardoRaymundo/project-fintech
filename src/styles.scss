@@ -1,4 +1,4 @@
-$background: #ffffff;
+/*$background: #ffffff;
 $background-hover: #ededed;
 
 $font-size: 14px;
@@ -21,7 +21,7 @@ $color-icon: #767676;
 $color-title: #0085f0;
 $color-subtitle: #767676;
 $color-group: #767676;
-$color-info: #767676;
+$color-info: #767676;*/
 
 
 @import "@plugins/outlets/outlets.styles";
@@ -41,96 +41,6 @@ $color-info: #767676;
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
-
-
-/* For use in src/lib/core/theming/_palette.scss */
-$md-mcgpalette0: (
-  50 : #f3e4e4,
-  100 : #e1bbbc,
-  200 : #cd8d8f,
-  300 : #b85f62,
-  400 : #a93d40,
-  500 : #9a1b1e,
-  600 : #92181a,
-  700 : #881416,
-  800 : #7e1012,
-  900 : #6c080a,
-  A100 : #ff9d9e,
-  A200 : #ff6a6c,
-  A400 : #ff373a,
-  A700 : #ff1e21,
-  contrast: (
-    50 : #000000,
-    100 : #000000,
-    200 : #000000,
-    300 : #ffffff,
-    400 : #ffffff,
-    500 : #ffffff,
-    600 : #ffffff,
-    700 : #ffffff,
-    800 : #ffffff,
-    900 : #ffffff,
-    A100 : #000000,
-    A200 : #000000,
-    A400 : #ffffff,
-    A700 : #ffffff,
-  )
-);
-/* For use in src/lib/core/theming/_palette.scss */
-$md-pallet1: (
-  50 : #94e7a0,
-  100 : #e1bbbc,
-  200 : #cd8d8f,
-  300 : #b85f62,
-  400 : #a93d40,
-  500 : #9a1b1e,
-  600 : #92181a,
-  700 : #881416,
-  800 : #7e1012,
-  900 : #6c080a,
-  A100 : #ff9d9e,
-  A200 : #ff6a6c,
-  A400 : #ff373a,
-  A700 : #ff1e21,
-  contrast: (
-    50 : #000000,
-    100 : #000000,
-    200 : #000000,
-    300 : #ffffff,
-    400 : #ffffff,
-    500 : #ffffff,
-    600 : #ffffff,
-    700 : #ffffff,
-    800 : #ffffff,
-    900 : #ffffff,
-    A100 : #000000,
-    A200 : #000000,
-    A400 : #ffffff,
-    A700 : #ffffff,
-  )
-);
-
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$candy-app-primary: mat-palette($mat-amber);
-$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$candy-app-warn: mat-palette($mat-red);
-
-// Create the theme object (a Sass map containing all of the palettes).
-$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($candy-app-theme);
-
-// Define the theme.
-$candy-app-primary: mat-palette($md-pallet1, 50, A100, A400);
-$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
 
 
 /* For use in src/lib/core/theming/_palette.scss */
@@ -168,6 +78,26 @@ $md-palette-client: (
 );
 
 
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$candy-app-primary: mat-palette($md-palette-client);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$candy-app-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($candy-app-theme);
+
+
+
+
 $palette-gray: mat-palette($mat-gray);
 $palette-client-primary: mat-palette($md-palette-client, 50, A100, A400);
 $candy-app-theme-color: mat-dark-theme($palette-client-primary, $candy-app-accent);
@@ -175,6 +105,7 @@ $candy-app-theme-color: mat-dark-theme($palette-client-primary, $candy-app-accen
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -208,6 +139,14 @@ body {
 
   &.sub-menu {
     max-height: 45px!important;
+
+    h2{
+      padding-right: 15px;
+      padding-left: 5px;
+      font-weight: 300;
+      font-size: 26px;
+      color: mat-color($palette-client-primary, 900);
+    }
 
     &.mat-toolbar-multiple-rows{
       min-height: 45px!important;
@@ -310,11 +249,68 @@ table{
       background: mat-color($palette-client-primary, 700) !important;
     }
     .mat-icon {
-      color: mat-color($palette-gray, 600)
+      color: mat-color($palette-gray, 600);
+    }
+  }
+}
+
+.mat-menu-panel {
+  min-width: 130px!important;
+  border-radius: unset!important;
+
+  .mat-menu-content:not(:empty) {
+    padding: 0;
+  }
+  .mat-menu-item {
+    line-height: 38px!important;
+    height: 38px!important;
+  }
+
+  .mat-menu-item:hover:not([disabled]), .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item-highlighted:not([disabled]) {
+    background: mat-color($palette-client-primary, 900)!important;
+    color: white;
+    .mat-icon {
+      color: white;
     }
   }
 }
 
 
+.spacer {
+  flex: 1 1 auto !important;
+}
 
 
+
+
+.mat-dialog-container {
+  padding: 20px!important;
+  padding-top: 0!important;
+  padding-bottom: 25px!important;
+  border-radius: 0!important;
+  border-bottom: 1px solid mat-color($palette-gray, 200);
+  overflow: hidden!important;
+  h2{
+    margin-top: 7px;
+    span {
+      border-top: 3px solid mat-color($palette-client-primary, 900) !important;
+      padding-top: 8px;
+      font-weight: 300;
+    }
+  }
+  .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+    min-width: 64px!important;
+    line-height: 28px!important;
+    padding: 0 22px!important;
+    border-radius: 3px!important;
+    font-size: 12px!important;
+    margin-left: 12px;
+  }
+
+  form{
+    font-size: 14px;
+    .mat-form-field{
+      width: 100%;
+    }
+  }
+}

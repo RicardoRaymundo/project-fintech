@@ -29,11 +29,17 @@
             [fixedInViewport]="true"
             [fixedTopGap]="65"
             [fixedBottomGap]="0">
-
+            <br>
             <use-ide-menu-sidenav-group [opened]="menuOpened"
                                         [openedTmp]="menuOpenedTmp"
                                         (resize)="onResizeMenu($event)"
                                         [listData]="listSidenaveMenu">
+            </use-ide-menu-sidenav-group>
+
+            <use-ide-menu-sidenav-group class="sidenav-submenu" [opened]="menuOpened"
+                                        [openedTmp]="menuOpenedTmp"
+                                        (resize)="onResizeMenu($event)"
+                                        [listData]="listSidenaveSubMenu">
             </use-ide-menu-sidenav-group>
 
           </mat-sidenav>
@@ -42,6 +48,7 @@
             <div class="content" [ngClass]="{'show-tools':showTools}" [style.height]="screenHeight+'px'" style="overflow: auto">
               <router-outlet (activate)="onActivate($event)" #outlet></router-outlet>
             </div>
+
             <div class="tools" *ngIf="showTools">
               <use-ide-menu-tools></use-ide-menu-tools>
             </div>

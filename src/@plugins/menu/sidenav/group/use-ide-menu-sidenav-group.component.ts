@@ -57,7 +57,7 @@ export class UseIdeMenuSidenavGroupComponent implements OnInit {
     this._openedTmp = value;
   }
 
-  @HostListener('mouseenter') mouseEnter() {
+ /* @HostListener('mouseenter') mouseEnter() {
     if (!this.opened) {
       this.resize.emit('over');
       this.localOpened = true;
@@ -69,7 +69,7 @@ export class UseIdeMenuSidenavGroupComponent implements OnInit {
       this.resize.emit('side');
       this.localOpened = undefined;
     }
-  }
+  }*/
 
   ngOnInit(opened?: boolean) {
     if (opened) {

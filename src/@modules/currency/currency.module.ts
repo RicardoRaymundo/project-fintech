@@ -3,12 +3,13 @@ import {CommonModule} from '@angular/common';
 import {CurrencyListComponent} from './list/currency-list.component';
 import {CurrencyMaterial} from './currency.material';
 import {CurrencyRouting} from './currency.routing';
-import {CurrencyPopupComponent} from './popup/currency-popup.component';
+import {CurrencyPopupComponent} from './dialog/currency-popup.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
 import {ToolbarModule} from '../../@plugins/toolbar/toolbar.module';
 import {CurrencyToolbarComponent} from './toolbar/currency-toolbar.component';
+import {CurrencyDialogComponent} from './dialog/currency-dialog.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -22,7 +23,11 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     CurrencyListComponent,
     CurrencyPopupComponent,
-    CurrencyToolbarComponent
+    CurrencyToolbarComponent,
+    CurrencyDialogComponent
+  ],
+  entryComponents: [
+    CurrencyDialogComponent
   ],
   imports: [
     CommonModule,

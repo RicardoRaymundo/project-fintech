@@ -26,41 +26,43 @@ export class OutletsApplicationSidenavComponent implements OnInit {
   };
   public listSidenaveMenu: Array<UseIdeMenuSidenavItemInterface> = [
     {
-      icon: 'account_circle',
-      label: 'Clientes',
-      routerLink: '/my-apps/lav-company/clientes',
-      routerLinkNew: '/my-apps/lav-company/clientes/adicionar',
-      showMenuOption: true
+      icon: 'local_atm',
+      label: 'Boletagem',
+      routerLink: '/my-apps/lav-company/clientes'
     },
     {
-      icon: 'receipt',
-      label: 'Contratos',
-      routerLink: '/my-apps/lav-company/contratos',
-      routerLinkNew: '/my-apps/lav-company/contratos/adicionar',
-      showBadge: false,
-      showMiniBadge: false,
-      showSubMenu: false,
-      showProgress: false
+      icon: 'check_circle_outline',
+      label: 'Liquidação',
+      routerLink: '/my-apps/lav-company/contratos'
     },
     {
-      icon: 'list_alt',
-      label: 'Serviços',
-      routerLink: '/my-apps/lav-company/servicos',
-      routerLinkNew: '/my-apps/lav-company/servicos/adicionar',
-      showBadge: false,
-      showMiniBadge: false,
-      showSubMenu: false,
-      showProgress: false
+      icon: 'people',
+      label: 'Usuários',
+      routerLink: '/my-apps/lav-company/servicos'
     },
     {
-      icon: 'receipt',
-      label: 'Nota de Débito',
-      routerLink: '/my-apps/lav-company/nota-de-debito',
-      routerLinkNew: '/my-apps/lav-company/nota-de-debito/adicionar',
-      showBadge: false,
-      showMiniBadge: false,
-      showSubMenu: false,
-      showProgress: false
+      icon: 'assignment_turned_in',
+      label: 'Configurações',
+      routerLink: '#',
+      showSubMenu: true
+    }
+  ];
+
+  public listSidenaveSubMenu: Array<UseIdeMenuSidenavItemInterface> = [
+    {
+      icon: 'monetization_on',
+      label: 'Moedas',
+      routerLink: '/my-apps/lav-company/clientes'
+    },
+    {
+      icon: 'account_balance',
+      label: 'Bancos',
+      routerLink: '/my-apps/lav-company/contratos'
+    },
+    {
+      icon: 'swap_horizontal_circle',
+      label: 'Exchanges',
+      routerLink: '/my-apps/lav-company/servicos'
     }
   ];
   public screenHeight: number;
@@ -82,7 +84,7 @@ export class OutletsApplicationSidenavComponent implements OnInit {
 
   public get showTools(): boolean {
     // return this.useIdePlatform.showTools;
-    return true;
+    return false;
   }
 
   ngOnInit() {

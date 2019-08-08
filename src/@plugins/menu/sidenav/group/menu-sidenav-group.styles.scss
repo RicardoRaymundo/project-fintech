@@ -1,5 +1,9 @@
 use-ide-menu-sidenav-group{
 
+  &.sidenav-submenu .mat-flat-button {
+    padding: 0 45px !important;
+  }
+
   .mat-flat-button{
     font-weight: 500!important;
     font-size: 14px!important;
@@ -89,7 +93,7 @@ use-ide-menu-sidenav-group{
       //border: 1px solid red;
 
       position: relative;
-      padding-left: 18px;
+      padding-left: 0;
 
       max-height: 32px;
       height: 32px;
@@ -109,7 +113,7 @@ use-ide-menu-sidenav-group{
       }
       &:hover {
         background: rgba(224, 225, 229, 0.51);
-        color: #282828;
+        border-left: 3px solid #ad0000;
       }
 
       .button--wrap {
@@ -220,7 +224,7 @@ use-ide-menu-sidenav-group{
           -moz-border-radius: 50%;
           border-radius: 50%;
 
-          background: #ffffff;
+          background: unset;
           color: rgba(40, 40, 40, 0.62);
 
           .label {
