@@ -11,7 +11,7 @@ export class DialogConfirmComponent {
   public btnCancelLabel: string = 'Cancelar';
   public btnConfirmLabel: string = 'OK';
 
-  constructor(public dialogRef: MatDialogRef<DialogConfirmComponent>,
+  constructor(@Inject(MatDialogRef) public dialogRef: MatDialogRef<DialogConfirmComponent>,
               @Inject(MAT_DIALOG_DATA) public data: DialogConfirmInterface) {
 
     this._config();
