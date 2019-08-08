@@ -42,7 +42,7 @@ export class CurrencyListComponent implements OnInit {
               @Inject(TranslateConfig) public translateConfig: TranslateConfig,
               @Inject(ActivatedRoute) private _activatedRoute: ActivatedRoute,
               @Inject(MatDialog) public dialog,
-              public useIdeDialog: DialogService) {
+              @Inject(DialogService) public useIdeDialog: DialogService) {
 
     // Implementa internacionalização
     this._configTranslate();
