@@ -1,0 +1,91 @@
+<h2 mat-dialog-title>
+    <span>{{data.title}}</span>
+</h2>
+
+<mat-dialog-content>
+  <!--<p>{{data.message}}</p>
+  <p *ngIf="data.complement">{{data.complement}}</p>-->
+
+  <form>
+    <div class="use-grid">
+      <div class="use-row">
+        <div class="col-xs-12 col-xsm-6">
+        <mat-form-field>
+          <input matInput [matDatepicker]="pickerStart" placeholder="Data da Operação">
+          <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+          <mat-datepicker #pickerStart></mat-datepicker>
+        </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Data da Liquidação">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <mat-label>Banco Câmbio</mat-label>
+            <mat-select>
+              <mat-option></mat-option>
+              <mat-option value="option1">Itaú</mat-option>
+              <mat-option value="option2">Safra</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="Tipo de Câmbio">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="Valor em Real">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="Taxa Final">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="IOF">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="Total">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="Valor Bruto">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="Valor Líquido">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field>
+            <mat-label>Descrição</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="5"
+                      cdkAutosizeMaxRows="8"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <span class="spacer"></span>
+  <button mat-flat-button color="primary" (click)="onConfirm()" cdkFocusInitial>{{btnConfirmLabel}}</button>
+  <button mat-stroked-button color="warn" (click)="onCancel()">{{btnCancelLabel}}</button>
+</mat-dialog-actions>

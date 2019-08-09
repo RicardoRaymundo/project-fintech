@@ -1,6 +1,8 @@
 import {Component, EventEmitter, HostListener, Input, OnInit, Output, QueryList, ViewChildren} from '@angular/core';
 import {UseIdeMenuSidenavItemComponent} from '../item/use-ide-menu-sidenav-item.component';
 import {UseIdeMenuSidenavItemInterface} from '../item/use-ide-menu-sidenav-item.interface';
+import {Router} from '@angular/router';
+import {ActiveContentService} from '../../../content/active-content.service';
 
 
 @Component({
@@ -18,9 +20,9 @@ export class UseIdeMenuSidenavGroupComponent implements OnInit {
   public buttonAddTitle: string;
   public buttonAddNavigate: Array<string>;
 
-  /*constructor(public router: Router,
-              public activeContent: ActiveContentService) {
-  }*/
+  // public activeContent: ActiveContentService
+  constructor(public router: Router) {
+  }
 
   private _listData: Array<UseIdeMenuSidenavItemInterface>;
 
@@ -85,13 +87,13 @@ export class UseIdeMenuSidenavGroupComponent implements OnInit {
   public onClicked(sidenavMenuItem: UseIdeMenuSidenavItemInterface): void {
     if (sidenavMenuItem.hasOwnProperty('routerLink')) {
       this._buttonAdd(sidenavMenuItem);
-      /*this.router.navigate([sidenavMenuItem.routerLink]);
+      this.router.navigate([sidenavMenuItem.routerLink]);
 
       // Configura informações global do conteúdo ativo
-      this.activeContent.icon = sidenavMenuItem.icon;
-      this.activeContent.label = sidenavMenuItem.label;
-      this.activeContent.routerLink = sidenavMenuItem.routerLink;
-*/
+      // this.activeContent.icon = sidenavMenuItem.icon;
+      // this.activeContent.label = sidenavMenuItem.label;
+      // this.activeContent.routerLink = sidenavMenuItem.routerLink;
+
       console.log('sidenavMenuItem', sidenavMenuItem);
     } else {
       console.error('ERROR:: SidenavMenuItem ', 'Não foi definido routerLink para o item do menu:', sidenavMenuItem.label);

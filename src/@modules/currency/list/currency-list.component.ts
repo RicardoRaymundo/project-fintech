@@ -101,7 +101,6 @@ export class CurrencyListComponent implements OnInit {
     this.openDialog({
       title: 'Editar Moeda',
       message: `Tem certeza de que deseja mover o e-mail '${item.address}' para a Lixeira?`,
-      complement: 'Bitcoin (BTC)',
       btnConfirmLabel: 'Salvar'
     }, () => {
       console.log('ADD ITEM');
@@ -121,7 +120,10 @@ export class CurrencyListComponent implements OnInit {
       title: 'Excluir Moeda',
       message: `Tem certeza de que deseja mover a moeda '${item.address}' para a Lixeira?`,
       complement: 'Bitcoin (BTC)',
-      btnConfirmLabel: 'Remover'
+      type: 'Moeda',
+      created_at: '27/07/2019 15:22',
+      btnConfirmLabel: 'Sim',
+      btnCancelLabel: 'Não'
     }, () => {
       this.remove(item);
     });
@@ -130,7 +132,7 @@ export class CurrencyListComponent implements OnInit {
   public openDialog(message: CurrencyDialogInterface, confirm: () => void, cancel?: () => void): void {
     const dialogRef = this.dialog.open(CurrencyDialogComponent, {
       data: message,
-      minWidth: '450px'
+     maxWidth: '600px'
     });
 
     dialogRef.afterClosed().subscribe((res: { option: string }): void => {
@@ -160,7 +162,6 @@ export class CurrencyListComponent implements OnInit {
     this.translateService.setDefaultLang(this.translateConfig.defaultLanguage);
     this.translateService.use(this.translateConfig.activeLang(REGEX));
     this.translateConfig.changeLang.subscribe((language) => {
-      console.log('BBBBBBBBBBBBBBBBBBBBB');
       this.translateService.use(language);
     });
   }

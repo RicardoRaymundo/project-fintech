@@ -1,0 +1,126 @@
+<liquidation-toolbar label="Liquidação" (addItem)="onAddItem()"></liquidation-toolbar>
+
+<mat-toolbar class="sub-menu">
+  <mat-toolbar-row>
+    <div class="filter">
+      <mat-form-field>
+        <input matInput [matDatepicker]="pickerStart" placeholder="Data Início">
+        <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+        <mat-datepicker #pickerStart></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="time">
+        <input matInput placeholder="Hora">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="pickerEnd" placeholder="Data Fim">
+        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="time">
+        <input matInput placeholder="Hora">
+      </mat-form-field>
+    </div>
+
+    <mat-checkbox>Trade</mat-checkbox>
+    <mat-checkbox>FX</mat-checkbox>
+
+    <span class="spacer"></span>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<table mat-table [dataSource]="dataSource" matSort [class.even-odd]="true">
+  <!-- Name Column -->
+  <ng-container matColumnDef="number">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>#</th>
+    <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="created_at">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Data</th>
+    <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Tipo</th>
+    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="operation">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Operação</th>
+    <td mat-cell *matCellDef="let element"> {{element.operation}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Quantidade</th>
+    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Preço</th>
+    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="counterpart">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Contrapartida</th>
+    <td mat-cell *matCellDef="let element"> {{element.counterpart}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="exchange">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Tipo de Câmbio</th>
+    <td mat-cell *matCellDef="let element"> {{element.exchange}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="total">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Valor Total</th>
+    <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+  </ng-container>
+
+  <!-- Star Column -->
+  <ng-container matColumnDef="menu" stickyEnd>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-mini-fab aria-label="" class="mat-elevation-z0" [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <!--<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      [ngClass]="{'highlight': selectedIndex == row['_id']}"
+      (click)="onHighlight(row)">
+  </tr>
+
+
+</table>
+<div class="paginator-container">
+  <mat-paginator [length]="100"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+</div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="onEditItem()">
+    <mat-icon>edit</mat-icon>
+    <span>Editar</span>
+  </button>
+  <button mat-menu-item (click)="onLiquidationItem()">
+    <mat-icon>check_circle_outline</mat-icon>
+    <span>Liquidar</span>
+  </button>
+</mat-menu>

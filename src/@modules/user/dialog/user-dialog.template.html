@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>
+  <span>{{data.title}}</span>
+</h2>
+
+<mat-dialog-content>
+  <!--<p>{{data.message}}</p>
+  <p *ngIf="data.complement">{{data.complement}}</p>-->
+
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Nome Completo">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="E-mail">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Senha">
+      <mat-icon matSuffix style="cursor: pointer" fontSet="material-icons-outlined">remove_red_eye</mat-icon>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Confirmação de senha">
+      <mat-icon matSuffix style="cursor: pointer" fontSet="material-icons-outlined">remove_red_eye</mat-icon>
+    </mat-form-field>
+
+    <p>Controle de Acesso</p>
+    <div class="access-control">
+      <mat-checkbox>Admin</mat-checkbox>
+      <mat-checkbox>Trader</mat-checkbox>
+      <mat-checkbox>Ops</mat-checkbox>
+    </div>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <span class="spacer"></span>
+  <button mat-flat-button color="primary" (click)="onConfirm()" cdkFocusInitial>{{btnConfirmLabel}}</button>
+  <button mat-stroked-button color="warn" (click)="onCancel()">{{btnCancelLabel}}</button>
+</mat-dialog-actions>

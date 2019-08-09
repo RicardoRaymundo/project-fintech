@@ -10,7 +10,11 @@
       </div>
       <div class="col-xs-9">
         <p>{{data.message}}</p>
-        <p *ngIf="data.complement">{{data.complement}}</p>
+        <div class="info">
+          <p *ngIf="data.complement"> <strong>{{data.complement}}</strong> </p>
+          <p *ngIf="data.type"><span>Tipo:</span> {{data.type}}</p>
+          <p *ngIf="data.created_at"><span>Criado em: </span>{{data.created_at}}</p>
+        </div>
       </div>
     </div>
   </div>

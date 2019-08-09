@@ -1,0 +1,106 @@
+<h2 mat-dialog-title>
+    <span>{{data.title}}</span>
+</h2>
+
+<mat-dialog-content>
+  <!--<p>{{data.message}}</p>
+  <p *ngIf="data.complement">{{data.complement}}</p>-->
+
+  <form>
+    <div class="use-grid">
+      <div class="use-row">
+        <div class="col-xs-12 col-xsm-6">
+        <mat-form-field>
+          <input matInput [matDatepicker]="pickerStart" placeholder="Data">
+          <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+          <mat-datepicker #pickerStart></mat-datepicker>
+        </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="Exchange">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <mat-label>Posição</mat-label>
+            <mat-select>
+              <mat-option></mat-option>
+              <mat-option value="option1">Local</mat-option>
+              <mat-option value="option2">Foreign</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <mat-label>C/V</mat-label>
+            <mat-select>
+              <mat-option></mat-option>
+              <mat-option value="option1">Compra</mat-option>
+              <mat-option value="option2">Venda</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <mat-label>Moeda 1</mat-label>
+            <mat-select>
+              <mat-option></mat-option>
+              <mat-option value="option1">BTC</mat-option>
+              <mat-option value="option2">USD</mat-option>
+              <mat-option value="option3">USDT</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <mat-label>Moeda 2</mat-label>
+            <mat-select>
+              <mat-option></mat-option>
+              <mat-option value="option1">BTC</mat-option>
+              <mat-option value="option2">USD</mat-option>
+              <mat-option value="option3">USDT</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="Quantidade">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="Preço Líquido">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="Base de Corretagem">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-xsm-6">
+          <mat-form-field>
+            <input matInput placeholder="Corretagem">
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field>
+            <mat-label>Descrição</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="5"
+                      cdkAutosizeMaxRows="8"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <span class="spacer"></span>
+  <button mat-flat-button color="primary" (click)="onConfirm()" cdkFocusInitial>{{btnConfirmLabel}}</button>
+  <button mat-stroked-button color="warn" (click)="onCancel()">{{btnCancelLabel}}</button>
+</mat-dialog-actions>

@@ -28,22 +28,22 @@ export class OutletsApplicationSidenavComponent implements OnInit {
     {
       icon: 'local_atm',
       label: 'Boletagem',
-      routerLink: '/my-apps/lav-company/clientes'
+      routerLink: '/boletagem'
     },
     {
       icon: 'check_circle_outline',
       label: 'Liquidação',
-      routerLink: '/my-apps/lav-company/contratos'
+      routerLink: '/liquidation'
     },
     {
       icon: 'people',
       label: 'Usuários',
-      routerLink: '/my-apps/lav-company/servicos'
+      routerLink: '/user'
     },
     {
       icon: 'assignment_turned_in',
       label: 'Configurações',
-      routerLink: '#',
+      routerLink: '/configuration',
       showSubMenu: true
     }
   ];
@@ -52,17 +52,17 @@ export class OutletsApplicationSidenavComponent implements OnInit {
     {
       icon: 'monetization_on',
       label: 'Moedas',
-      routerLink: '/my-apps/lav-company/clientes'
+      routerLink: '/currency'
     },
     {
       icon: 'account_balance',
       label: 'Bancos',
-      routerLink: '/my-apps/lav-company/contratos'
+      routerLink: '/bank'
     },
     {
       icon: 'swap_horizontal_circle',
       label: 'Exchanges',
-      routerLink: '/my-apps/lav-company/servicos'
+      routerLink: '/exchange'
     }
   ];
   public screenHeight: number;

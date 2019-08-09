@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>
+    <span>{{data.title}}</span>
+</h2>
+
+
+<mat-dialog-content class="dialog-duplicate">
+  <!--<p>{{data.message}}</p>
+  <p *ngIf="data.complement">{{data.complement}}</p>-->
+
+  <div class="use-grid">
+    <div class="use-row">
+      <div class="col-xs-3">
+        <mat-icon fontSet="material-icons-outlined">file_copy</mat-icon>
+      </div>
+      <div class="col-xs-9">
+        <p>{{data.message}}</p>
+        <div class="info">
+          <p *ngIf="data.complement"> <strong>{{data.complement}}</strong> </p>
+          <p *ngIf="data.created_at"><span>Criado em: </span>{{data.created_at}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <span class="spacer"></span>
+  <button mat-flat-button color="primary" (click)="onConfirm()" cdkFocusInitial>{{btnConfirmLabel}}</button>
+  <button mat-stroked-button color="warn" (click)="onCancel()">{{btnCancelLabel}}</button>
+</mat-dialog-actions>

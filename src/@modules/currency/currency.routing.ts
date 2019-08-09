@@ -5,6 +5,10 @@ import {CurrencyListComponent} from './list/currency-list.component';
 
 const routes: Routes = [
   {
+    path: 'configuration',
+    redirectTo: 'currency'
+  },
+  {
     path: 'currency',
     component: CurrencyListComponent
   }

@@ -16,7 +16,8 @@ export class DialogService {
 
   public openConfirm(message: DialogConfirmInterface, confirm: () => void, cancel?: () => void): void {
     const dialogRef = this.dialog.open(DialogConfirmComponent, {
-      data: message
+      data: message,
+      maxWidth: '600px'
     });
 
     dialogRef.afterClosed().subscribe((res: { option: string }): void => {

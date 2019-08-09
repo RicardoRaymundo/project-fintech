@@ -100,7 +100,8 @@
       }
 
       .content {
-        height: 600px; //Fazer via rotina angular
+        //height: 600px; //Fazer via rotina angular
+        height: 90vh; //Fazer via rotina angular
         overflow-y: auto;
 
         &.show-tools {
