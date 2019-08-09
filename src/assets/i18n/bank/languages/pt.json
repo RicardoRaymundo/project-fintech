@@ -1,0 +1,15 @@
+{
+  "CURRENCY": {
+    "PAGE": {
+      "TITLE": "Bancos",
+      "TEXT": "Texto de exemplo da página em PORTUGUÊS. CURRENCY XXQQQ --->>>"
+    },
+    "TOOLBAR": {
+      "TITLE": "Título da Applicação CURRENCY XXQQ ---->>>"
+    },
+    "BTN": {
+      "SAVE": "Salvar",
+      "ENTER": "Entrar"
+    }
+  }
+}

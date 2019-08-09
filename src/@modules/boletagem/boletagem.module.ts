@@ -13,6 +13,7 @@ import {DialogTradeComponent} from './dialog/trade/dialog-trade.component';
 import {DialogFxComponent} from './dialog/fx/dialog-fx.component';
 import {DialogDuplicateComponent} from './dialog/duplicate/dialog-duplicate.component';
 import {DialogLiquidationComponent} from './dialog/liquidation/dialog-liquidation.component';
+import {BoletagemDialogModule} from './dialog/boletagem-dialog.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -26,16 +27,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     BoletagemListComponent,
     BoletagemToolbarComponent,
-    DialogTradeComponent,
-    DialogFxComponent,
-    DialogDuplicateComponent,
-    DialogLiquidationComponent
+
   ],
   entryComponents: [
-    DialogTradeComponent,
-    DialogFxComponent,
-    DialogDuplicateComponent,
-    DialogLiquidationComponent
+
   ],
   imports: [
     CommonModule,
@@ -43,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BoletagemRouting,
 
     ToolbarModule,
+    BoletagemDialogModule,
 
     HttpClientModule,
     TranslateModule.forRoot({

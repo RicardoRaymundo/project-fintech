@@ -24,6 +24,7 @@ import {FxContractsComponent} from './fx/contracts/fx-contracts.component';
 import {ContractDialogComponent} from './fx/contracts/dialog/contract-dialog.component';
 import {DialogFxComponent} from '../boletagem/dialog/fx/dialog-fx.component';
 import {DialogTradeComponent} from '../boletagem/dialog/trade/dialog-trade.component';
+import {BoletagemDialogModule} from '../boletagem/dialog/boletagem-dialog.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -49,9 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LiquidationFxComponent,
     FxContractsToolbarComponent,
     FxContractsComponent,
-    ContractDialogComponent,
-    DialogFxComponent,
-    DialogTradeComponent
+    ContractDialogComponent
   ],
   entryComponents: [
     LiquidationDialogComponent,
@@ -60,8 +59,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     TradeBankToolbarComponent,
     FxContractsToolbarComponent,
     ContractDialogComponent,
-    DialogFxComponent,
-    DialogTradeComponent
   ],
   imports: [
     CommonModule,
@@ -69,6 +66,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LiquidationRouting,
 
     ToolbarModule,
+
+    BoletagemDialogModule,
 
     HttpClientModule,
     TranslateModule.forRoot({
