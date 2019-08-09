@@ -9,12 +9,12 @@
 
       <find-header class="spacer"></find-header>
 
-      <button mat-mini-fab class="mat-elevation-z0 button--notification" color="primary">
+      <!--<button mat-mini-fab class="mat-elevation-z0 button&#45;&#45;notification" color="primary">
         <mat-icon aria-label="">apps</mat-icon>
       </button>
-      <button mat-mini-fab class="mat-elevation-z0 button--notification" matBadge="9" matBadgeColor="warn" color="primary">
+      <button mat-mini-fab class="mat-elevation-z0 button&#45;&#45;notification" matBadge="9" matBadgeColor="warn" color="primary">
         <mat-icon aria-label="">notifications_none</mat-icon>
-      </button>
+      </button>-->
       <mat-divider [vertical]="true"></mat-divider>
 
       <!--<h6>{{user.name}}</h6>-->
@@ -34,45 +34,19 @@
   </mat-toolbar>
 
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="onClickProfile()">
+    <button mat-menu-item (click)="onClickProfile()" disabled>
       <mat-icon>face</mat-icon>
       Visualizar Perfil
     </button>
-    <button mat-menu-item (click)="onClickAccountSettings()">
+    <button mat-menu-item (click)="onClickAccountSettings()" disabled>
       <mat-icon>assignment_ind</mat-icon>
       Gerenciar Conta
     </button>
-    <mat-divider></mat-divider>
-    <button mat-menu-item disabled>
-      <mat-icon>inbox</mat-icon>
-      Meus Trabalhos
-    </button>
-    <button mat-menu-item disabled>
-      <mat-icon>outlined_flag</mat-icon>
-      Meus Projetos
-    </button>
-    <button mat-menu-item (click)="onClickApplication()">
-      <mat-icon>apps</mat-icon>
-      Meus Aplicativos
-    </button>
-    <button mat-menu-item disabled>
-      <mat-icon>insert_drive_file</mat-icon>
-      Meus Documentos
-    </button>
-    <button mat-menu-item disabled>
-      <mat-icon>schedule</mat-icon>
-      Minhas Tarefas
-    </button>
-    <mat-divider></mat-divider>
     <!--<button mat-menu-item (click)="onClickAdmin()" [disabled]="!acl.hasSystemAdminAccess"><mat-icon>settings</mat-icon> Administrar Sistema</button>-->
     <mat-divider></mat-divider>
     <button mat-menu-item (click)="onClickExit()">
       <mat-icon>exit_to_app</mat-icon>
       Sair
-    </button>
-    <button mat-menu-item (click)="onApi()">
-      <mat-icon>exit_to_app</mat-icon>
-      Api/endpoints
     </button>
   </mat-menu>
 </div>
