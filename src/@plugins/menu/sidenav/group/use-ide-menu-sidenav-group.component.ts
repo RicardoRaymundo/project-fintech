@@ -22,6 +22,7 @@ export class UseIdeMenuSidenavGroupComponent implements OnInit {
   public buttonAddNavigate: Array<string>;
 
   // public activeContent: ActiveContentService
+  // Inject
   constructor(@Inject(Router) public router: Router) {
   }
 
