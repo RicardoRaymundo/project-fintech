@@ -1,8 +1,9 @@
-import {Component, EventEmitter, HostListener, Input, OnInit, Output, QueryList, ViewChildren} from '@angular/core';
+import {Component, EventEmitter, HostListener, Inject, Input, OnInit, Output, QueryList, ViewChildren} from '@angular/core';
 import {UseIdeMenuSidenavItemComponent} from '../item/use-ide-menu-sidenav-item.component';
 import {UseIdeMenuSidenavItemInterface} from '../item/use-ide-menu-sidenav-item.interface';
 import {Router} from '@angular/router';
 import {ActiveContentService} from '../../../content/active-content.service';
+import {MatDialogRef} from '@angular/material';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class UseIdeMenuSidenavGroupComponent implements OnInit {
   public buttonAddNavigate: Array<string>;
 
   // public activeContent: ActiveContentService
-  constructor(public router: Router) {
+  constructor(@Inject(Router) public router: Router) {
   }
 
   private _listData: Array<UseIdeMenuSidenavItemInterface>;
