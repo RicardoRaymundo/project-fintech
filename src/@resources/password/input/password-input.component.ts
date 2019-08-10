@@ -117,7 +117,7 @@ export class PasswordInputComponent implements ControlValueAccessor, OnInit {
               @Inject(Renderer2) private _renderer: Renderer2,
               @Inject(FormBuilder) private _formBuilder: FormBuilder,
               @Inject(PLATFORM_ID) private _platform: any,
-              @Self() @Optional() public _control: NgControl,
+              @Self() @Optional() @Inject(NgControl) public _control: NgControl,
               @Inject(AccountService) public accountService: AccountService) {
 
     // Verifica se está no browser
