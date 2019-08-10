@@ -118,7 +118,7 @@ export class PasswordInputComponent implements ControlValueAccessor, OnInit {
               @Inject(FormBuilder) private _formBuilder: FormBuilder,
               @Inject(PLATFORM_ID) private _platform: any,
               @Self() @Optional() public _control: NgControl,
-              public accountService: AccountService) {
+              @Inject(AccountService) public accountService: AccountService) {
 
     // Verifica se está no browser
     if (isPlatformBrowser(this._platform)) {
