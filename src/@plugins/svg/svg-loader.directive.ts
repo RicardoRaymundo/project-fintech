@@ -1,6 +1,6 @@
 // Extract necessary symbol information
 // Return text of specified svg
-import {Directive, ElementRef, Input, OnChanges} from '@angular/core';
+import {Directive, ElementRef, Inject, Input, OnChanges} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
@@ -19,9 +19,8 @@ export class SvgLoaderDirective implements OnChanges {
 
   @Input() useLoader: string;
 
-  constructor(
-    private element: ElementRef,
-    private http: HttpClient) {
+  constructor(@Inject(ElementRef) private element: ElementRef,
+              @Inject(HttpClient) private http: HttpClient) {
   }
 
   ngOnChanges(values) {
