@@ -18,7 +18,7 @@ export class SvgIconComponent {
    */
   constructor(@Inject(MatIconRegistry) iconRegistry: MatIconRegistry,
               @Inject(DomSanitizer) sanitizer: DomSanitizer,
-              public router: Router) {
+              @Inject(Router) public router: Router) {
 
     // iconRegistry.addSvgIcon('chart', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/chart.svg'));
     iconRegistry.addSvgIconLiteral('flag', sanitizer.bypassSecurityTrustHtml(`
