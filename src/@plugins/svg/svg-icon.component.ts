@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Router} from '@angular/router';
@@ -16,8 +16,8 @@ export class SvgIconComponent {
    * @param sanitizer
    * @param router
    */
-  constructor(iconRegistry: MatIconRegistry,
-              sanitizer: DomSanitizer,
+  constructor(@Inject(MatIconRegistry) iconRegistry: MatIconRegistry,
+              @Inject(DomSanitizer) sanitizer: DomSanitizer,
               public router: Router) {
 
     // iconRegistry.addSvgIcon('chart', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/chart.svg'));
