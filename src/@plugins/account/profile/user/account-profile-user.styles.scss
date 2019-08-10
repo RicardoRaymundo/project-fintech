@@ -1,0 +1,28 @@
+account-profile-user {
+  table {
+    margin-bottom: 35px;
+
+    td.avatar {
+      vertical-align: top;
+      max-width: 110px;
+      min-width: 110px;
+      width: 110px;
+    }
+
+
+    .label {
+      font-weight: 500;
+      margin-top: 15px;
+    }
+
+    .name {
+      font-weight: 300;
+      font-size: 25px;
+    }
+
+    .role {
+      margin-top: unset !important;
+      margin-bottom: 15px;
+    }
+  }
+}

@@ -21,17 +21,23 @@ const routes: Routes = [
   {
     path: '',
     component: OutletsApplicationSidenavComponent,
-    loadChildren: () => import('../@modules/user/user.module').then(m => m.UserModule)
-  },
-  {
-    path: '',
-    component: OutletsApplicationSidenavComponent,
     loadChildren: () => import('../@modules/liquidation/liquidation.module').then(m => m.LiquidationModule)
   },
   {
     path: '',
     component: OutletsApplicationSidenavComponent,
     loadChildren: () => import('../@modules/boletagem/boletagem.module').then(m => m.BoletagemModule)
+  },
+  {
+    path: '',
+    component: OutletsApplicationSidenavComponent,
+    loadChildren: () => import('../@modules/user/user.module').then(m => m.UserModule)
+  },
+  {
+    path: '',
+    /*canActivate: [PlatformAuthLoginActivate],
+    canActivateChild: [PlatformAuthLoginActivate],*/
+    loadChildren: () => import('../@plugins/account/account.module').then(m => m.AccountModule)
   }
 ];
 

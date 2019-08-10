@@ -1,0 +1,37 @@
+<div class="screen-center my-class-with-default-shadow">
+  <div class="vertical">
+    <div class="horizontal mat-elevation-z2">
+      <div class="use-grid login">
+        <div class="use-row">
+          <div class="col-xs-6 hidden-xsm-down box-left"></div>
+          <div class="col-xs-12 col-xsb-6 box-right login">
+            <h1> Login de acesso </h1>
+            <p class="login-fail" *ngIf="loginFail">Nome de usuário ou senha incorretos.</p>
+
+            <form #form [formGroup]="formGroup" method="POST" novalidate>
+
+              <mat-form-field>
+                <input matInput type="text" formControlName="email" placeholder="E-mail">
+                <mat-error>Este campo é obrigatório</mat-error>
+              </mat-form-field>
+
+              <password-input [sugestion]="false" [view]="true" formControlName="password"></password-input>
+
+              <mat-slide-toggle formControlName="remember">
+                Lembrar do usuário
+              </mat-slide-toggle>
+
+              <div class="button-group">
+                <button (click)="onSubmit()" [disabled]="!formGroup.valid" color="primary" mat-raised-button>Entrar</button>
+                <button mat-stroked-button color="primary" routerLink="/account/signup">Criar uma conta</button>
+                <button mat-stroked-button color="primary" routerLink="/account/forgot-password">Esqueceu sua senha?</button>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

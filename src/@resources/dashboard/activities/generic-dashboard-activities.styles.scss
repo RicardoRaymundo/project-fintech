@@ -1,0 +1,62 @@
+generic-dashboard-activities {
+
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .use-grid{
+    margin: 0;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+      list-style: none;
+      height: 30px;
+      border-top: 1px solid $color-border;
+      font-size: $font-size-info;
+      font-weight: 500;
+      color: $color-info;
+
+      table {
+        width: 100%;
+        .icon{
+          width: 25px;
+          padding-top: 3px;
+        }
+        .label {
+          text-align: left;
+        }
+
+        .total {
+          text-align: right;
+          font-weight: 600;
+        }
+      }
+      .mini-icon {
+        fill: $color-icon;
+      }
+      &:hover {
+        color: $color-hover;
+        cursor: pointer;
+        .mini-icon {
+          fill: $color-hover;
+        }
+      }
+    }
+
+
+  }
+
+
+  @media screen and (min-width: 600px) {
+    li:first-child {
+      border-top: unset;
+    }
+  }
+
+}
+
+

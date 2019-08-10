@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <td class="avatar">
+      <account-profile-avatar></account-profile-avatar>
+    </td>
+
+    <td>
+      <p class="name">{{user.fullName}}</p>
+      <p class="label role">{{user.role}}</p>
+      <p>{{user.bio}}</p>
+
+      <generic-emails-view [listData]="user.emails"></generic-emails-view>
+      <generic-phones-view [listData]="user.phones"></generic-phones-view>
+      <generic-address-view [listData]="user.address" showAddressType="true"></generic-address-view>
+
+      <p class="info">Todos os campos desta página são opcionais e podem ser excluídos a qualquer momento e, ao preenchê-los, você nos dá
+        permissão para compartilhar esses dados onde quer que seu perfil de usuário apareça. Por favor, consulte nossa declaração de
+        privacidade para saber mais sobre como usamos essas informações.</p>
+
+      <div class="button-group">
+        <button mat-flat-button color="primary" [routerLink]="'/account/settings/profile'">Editar Perfil Pessoal</button>
+      </div>
+    </td>
+  </tr>
+</table>

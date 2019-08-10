@@ -1,0 +1,10 @@
+<div class="generic-view">
+  <h2 class="label">E-mails <span *ngIf="listData.length > 1">({{listData.length}})</span></h2>
+  <ul>
+    <li class="subitem" *ngFor="let item of listData">
+      {{item.address}}
+      <small *ngIf="item.primary">(Principal)</small>
+    </li>
+  </ul>
+</div>
+

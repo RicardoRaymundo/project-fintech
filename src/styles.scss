@@ -15,6 +15,12 @@
 @include mat-core();
 
 
+.my-class-with-default-shadow {
+  // Adds a shadow for elevation level 2 with default color and full opacity:
+  @include mat-elevation(2);
+}
+
+
 /* For use in src/lib/core/theming/_palette.scss */
 $md-palette-client: (
   50 : #f5f5f5,
@@ -27,7 +33,7 @@ $md-palette-client: (
   700 : #c00000,
   800 : #b90000,
   900 : #ad0000,
-  A100 : #ffd7d7,
+  A100 : rgba(154, 27, 30, 0.05),
   A200 : #ffa4a4,
   A400 : #ff7171,
   A700 : #ff5858,
@@ -80,6 +86,16 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+
+  h1, h2, h2, h4, h5, h6 {
+    font-weight: 300;
+  }
+
+  h1 {
+    color: mat-color($palette-gray, 600);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 
@@ -157,16 +173,18 @@ body {
       max-height: 35px;
       overflow: hidden;
       //border: 1px solid red;
-      .time{
+      .time {
         max-width: 40px;
       }
+
       .mat-form-field {
         font-size: 13px;
         max-width: 100px;
         margin-left: 15px;
       }
     }
-    .mat-checkbox{
+
+    .mat-checkbox {
       font-size: 13px;
       margin-right: 15px;
     }
@@ -175,6 +193,7 @@ body {
 
 table {
   width: 100%;
+
   tr.mat-header-row {
     height: 40px;
     background: mat-color($palette-gray, 50);
@@ -342,22 +361,13 @@ table {
     }
   }
 
-  .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+  .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button, .mat-raised-button {
     min-width: 64px !important;
     line-height: 28px !important;
     padding: 0 30px !important;
     border-radius: 3px !important;
     font-size: 12px !important;
     margin-left: 12px;
-  }
-
-
-  form {
-    font-size: 14px;
-
-    .mat-form-field {
-      width: 100%;
-    }
   }
 }
 
@@ -374,7 +384,7 @@ table {
 
   &.dialog-duplicate {
     .mat-icon {
-      color: mat-color($palette-gray, 400)!important;
+      color: mat-color($palette-gray, 400) !important;
       font-size: 110px;
     }
   }
@@ -397,41 +407,114 @@ table {
       margin-left: 20px;
     }
   }
+}
 
-  form {
-    font-size: 14px;
+form {
+  font-size: 14px;
 
-    .mat-form-field {
-      width: 100%;
-    }
+  .mat-form-field {
+    width: 100%;
   }
 }
 
-.group-form{
+.mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+  min-width: 64px !important;
+  line-height: 28px !important;
+  padding: 0 30px !important;
+  border-radius: 3px !important;
+  font-size: 12px !important;
+  margin-left: 12px;
+}
+
+.form-group {
   padding: 15px;
   border-bottom: 1px solid mat-color($palette-gray, 200);
-  form {
-    font-size: 14px;
 
-    .mat-form-field {
-      width: 100%;
-    }
-  }
-
-  .buttons-group{
+  .button-group {
     padding: 20px;
     padding-right: 0;
-
-    .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
-      min-width: 64px !important;
-      line-height: 28px !important;
-      padding: 0 30px !important;
-      border-radius: 3px !important;
-      font-size: 12px !important;
-      margin-left: 12px;
-    }
   }
-  .mat-toolbar{
+
+  .mat-toolbar {
     border: unset;
   }
 }
+
+
+.screen-center {
+  height: 100vh;
+  position: relative;
+
+  .vertical {
+    height: 480px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -240px;
+  }
+
+  .horizontal {
+    width: 100%;
+    height: 480px;
+    background: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+
+    .box-left {
+      background: mat-color($palette-client-primary, A100);
+      height: 480px;
+    }
+
+    .box-right {
+      height: 480px;
+
+      &.login {
+        padding: 40px;
+
+        h1 {
+          text-align: center;
+          margin-top: 0;
+        }
+
+        .button-group {
+          padding-top: 10px;
+
+          .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button, .mat-raised-button {
+            width: 100%;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+  .mat-progress-bar{
+    height: 2px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .screen-center {
+    .horizontal {
+      width: 90%;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .screen-center {
+    .horizontal {
+      width: 80%;
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .screen-center {
+    .horizontal {
+      width: 70%;
+    }
+  }
+}
+
+
+

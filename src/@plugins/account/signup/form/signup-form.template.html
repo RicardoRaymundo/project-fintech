@@ -1,0 +1,113 @@
+<div class="screen-center">
+  <mat-progress-bar
+    *ngIf="showLoading"
+    mode="indeterminate">
+  </mat-progress-bar>
+  <div class="vertical">
+    <div class="horizontal mat-elevation-z2">
+      <div class="use-grid login">
+        <div class="use-row">
+          <div class="col-xs-6 hidden-xsm-down box-left"></div>
+          <div class="col-xs-12 col-xsb-6 box-right login">
+            <h1> Criar conta </h1>
+            <p *ngIf="(formGroup.controls.email.valid && !emailExist)" class="login-fail">O email de entrada não existe.</p>
+            <br>
+            <form #form [formGroup]="formGroup" method="POST" novalidate>
+
+              <mat-form-field>
+                <mat-label>E-mail</mat-label>
+                <input (keyup)="onFindEmail($event)" formControlName="email" matInput type="text">
+                <mat-icon *ngIf="formGroup.controls.email.value && (formGroup.controls.email.valid && !emailExist)" matSuffix
+                          matTooltip="E-mail válido">done
+                </mat-icon>
+                <mat-icon *ngIf="formGroup.controls.email.value && (!formGroup.controls.email.valid || emailExist)" matSuffix
+                          matTooltip="E-mail em uso">warning
+                </mat-icon>
+                <mat-error>E-mail inválido ou está em uso</mat-error>
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input formControlName="first_name" matInput type="text">
+                <mat-error>Este campo é obrigatório</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Sobrenome</mat-label>
+                <input formControlName="last_name" matInput type="text">
+              </mat-form-field>
+
+
+              <div class="button-group">
+                <button (click)="onSubmit()" [disabled]="(!formGroup.valid)" color="primary" mat-raised-button>Enviar</button>
+                <button mat-stroked-button color="primary" routerLink="/account/login">Voltar para login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+
+<mat-progress-bar
+  *ngIf="showLoading"
+  mode="indeterminate">
+</mat-progress-bar>
+
+<div class="signup-form">
+  <form [formGroup]="formGroup" novalidate>
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input (keyup)="onFindEmail($event)" formControlName="email" matInput type="text">
+      <mat-icon *ngIf="formGroup.controls.email.value && (formGroup.controls.email.valid && !emailExist)" matSuffix
+                matTooltip="E-mail válido">done
+      </mat-icon>
+      <mat-icon *ngIf="formGroup.controls.email.value && (!formGroup.controls.email.valid || emailExist)" matSuffix
+                matTooltip="E-mail em uso">warning
+      </mat-icon>
+      <mat-error>E-mail inválido ou está em uso</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input formControlName="first_name" matInput type="text">
+      <mat-error>Este campo é obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Sobrenome</mat-label>
+      <input formControlName="last_name" matInput type="text">
+    </mat-form-field>
+
+    <br>
+
+
+    <password-input formControlName="password" view="true"></password-input>
+
+
+    --<mat-form-field class="form-field-passsword">
+      <mat-label>Senha</mat-label>
+      <input #password (keyup)="onPasswordValidate(password.value)" formControlName="password" matInput pattern="[a-zA-Z0-9]"
+             type="password">
+      <mat-icon (click)="onShowHidePassword(password)" matSuffix matTooltip="Visualizar/Ocultar">visibility</mat-icon>
+      <mat-icon (click)="onGereratePassword(password)" matSuffix matTooltip="Gerar nova senha">replay</mat-icon>
+      <mat-error>Senha inválida</mat-error>
+    </mat-form-field>--
+
+
+
+    <div #errorPassword></div>
+    <br>
+    <mat-checkbox formControlName="agree_terms_policy">Termos</mat-checkbox>
+    <br>
+    <mat-checkbox formControlName="agree_receive_news">Notícias</mat-checkbox>
+  </form>
+
+
+  <button (click)="onSubmit()" [disabled]="!(!emailExist && formGroup.valid)" color="primary" mat-raised-button>Salvar</button>
+
+
+</div>
+-->

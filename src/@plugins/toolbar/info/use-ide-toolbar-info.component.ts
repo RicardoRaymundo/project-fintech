@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class UseIdeToolbarInfoComponent implements OnInit {
 
-  //@Output('close') public close: EventEmitter<any> = new EventEmitter();
+  // @Output('close') public close: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }
@@ -16,7 +16,7 @@ export class UseIdeToolbarInfoComponent implements OnInit {
   }
 
   public onClose(): void {
-    //this.close.emit();
-    //this.useIdePlatform.closeSideInfo();
+    // this.close.emit();
+    // this.useIdePlatform.closeSideInfo();
   }
 }

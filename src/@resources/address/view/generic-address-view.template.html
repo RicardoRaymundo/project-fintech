@@ -1,0 +1,11 @@
+<div class="generic-view">
+  <h2 class="label">Endereços <span *ngIf="listData.length > 1">({{listData.length}})</span></h2>
+  <ul>
+    <li class="subitem" *ngFor="let item of listData">
+      {{item.address}}, {{item.number}}
+      <span *ngIf="item.complement"> - {{item.complement}}</span>
+      <br>{{item.postal_code}} - {{item.city}} - {{item.state}}
+      <small *ngIf="showAddressType">({{item['typeValue']}})</small>
+    </li>
+  </ul>
+</div>

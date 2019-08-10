@@ -1,0 +1,23 @@
+@import "user/account-profile-user.styles";
+@import "avatar/account-profile-avatar.styles";
+
+.account-profile {
+  padding-top: 20px;
+
+  @media screen and (max-width: 839px) {
+
+    .content-wrap {
+      border-bottom: 1px solid $color-border;
+    }
+
+    generic-dashboard-activities {
+      ul {
+        margin-top: -1px;
+      }
+
+      li:first-child {
+        border-top: 1px solid $color-border;
+      }
+    }
+  }
+}

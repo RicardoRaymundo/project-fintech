@@ -1,0 +1,43 @@
+<div class="use-grid">
+  <div class="use-row">
+    <div class="col-xs-12 col-md-6">
+      <ul>
+        <li *ngFor="let item of listActivities.slice(0, (listActivities.length/2)+(listActivities.length%2))"
+            (click)="onClickActivity(item)">
+          <table class="group">
+            <tr>
+              <td class="icon">
+                <mat-icon mat-list-icon [svgIcon]="item.icon"></mat-icon>
+              </td>
+              <td>
+                <p class="label">{{item.label}}</p>
+              </td>
+              <td>
+                <p class="total">{{item.total}}</p>
+              </td>
+            </tr>
+          </table>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+      <ul>
+        <li *ngFor="let item of listActivities.slice((listActivities.length/2)+(listActivities.length%2), listActivities.length)"
+        (click)="onClickActivity(item)">
+          <table>
+            <tr>
+              <td class="icon">
+                <mat-icon mat-list-icon [svgIcon]="item.icon"></mat-icon>
+              </td>
+              <td>
+                <p class="label">{{item.label}}</p>
+              </td>
+              <td>
+                <p class="total">{{item.total}}</p>
+              </td>
+            </tr>
+          </table>
+      </ul>
+    </div>
+  </div>
+</div>

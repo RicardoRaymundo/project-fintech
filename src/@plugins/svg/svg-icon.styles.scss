@@ -1,0 +1,31 @@
+.hidden{
+  display: none;
+}
+
+.mini-icon {
+  //shape-rendering: optimizeSpeed;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  fill: $color-icon;
+  opacity: 0.8;
+}
+
+
+.rotate90 {
+  .rotate {
+    transform: rotate(90deg);
+  }
+}
+.rotate180 {
+  .rotate {
+    transform: rotate(180deg);
+  }
+}
+
+.rotate270 {
+  .rotate {
+    transform: rotate(270deg);
+  }
+}

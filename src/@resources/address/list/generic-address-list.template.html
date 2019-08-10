@@ -1,0 +1,43 @@
+<span class="generic-label"><mat-icon aria-label="" svgIcon="place"></mat-icon>
+  {{label}}
+  <span *ngIf="listData.length > 1">({{listData.length}})</span></span>
+
+<div class="generic-content" [ngClass]="{isEditorMode:isEditorMode}">
+  <button #btnAdd mat-mini-fab
+          class="button-add mat-elevation-z0"
+          [ngClass]="{hidden: !showButtonAdd}"
+          [disabled]="isEditorMode"
+          matTooltip="Adicionar endereço"
+          (click)="onShowAddEditItem()">
+    <mat-icon class="add">add_circle_outline</mat-icon>
+  </button>
+  <div class="use-grid" *ngFor="let item of listData">
+    <div #addressElement class="use-row">
+      <div class="col-sm-9" style="padding-top: 7px;">
+        {{item.address}}, {{item.number}}
+        <span *ngIf="item.complement"> - {{item.complement}}</span>
+        <br>{{item.postal_code}} - {{item.city}} - {{item.state}}
+        <small *ngIf="showAddressType">({{item['typeValue']}})</small>
+      </div>
+      <div class="col-sm-3 button-group edit-delete">
+        <button mat-mini-fab class="mat-elevation-z0"
+                matTooltip="Editar"
+                [disabled]="isEditorMode"
+                (click)="onEditItem(item, addressElement)">
+          <mat-icon class="edit" svgIcon="create"></mat-icon>
+        </button>
+
+        <button #btnRemoveAddress mat-mini-fab class=" remove mat-elevation-z0"
+                [disableRipple]="true"
+                matTooltip="Exluir"
+                [disabled]="isEditorMode"
+                (click)="onRemoveItem(item)">
+          <mat-icon class="delete" svgIcon="delete"></mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<generic-address-edit #editor class="hidden" (cancel)="onEditorCancel()" (update)="onEditorUpdate($event)"></generic-address-edit>

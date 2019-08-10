@@ -1,0 +1,39 @@
+<form [formGroup]="formGroup" novalidate>
+  <table>
+    <tr>
+      <td class="avatar">
+        <account-profile-avatar></account-profile-avatar>
+      </td>
+      <td>
+
+        <mat-form-field>
+          <mat-label>Nome completo</mat-label>
+          <input type="text" matInput formControlName="fullname">
+          <mat-error>Este campo é obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Cargo / Função</mat-label>
+          <input type="text" matInput formControlName="role">
+        </mat-form-field>
+
+        <mat-form-field>
+        <textarea matInput
+                  placeholder="Bio"
+                  cdkTextareaAutosize
+                  #autosize="cdkTextareaAutosize"
+                  formControlName="bio"
+                  cdkAutosizeMinRows="3"></textarea>
+        </mat-form-field>
+
+        <generic-emails-list [listData]="user.emails" showButtonAdd="true"></generic-emails-list>
+        <generic-phones-list [listData]="user.phones" showButtonAdd="true"></generic-phones-list>
+        <generic-address-list [listData]="user.address" showButtonAdd="true"></generic-address-list>
+
+        <div class="button-group">
+          <button type="button" mat-flat-button color="primary" (click)="onUpdateProfile()">Atualizar Perfil Pessoal</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>

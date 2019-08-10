@@ -1,0 +1,9 @@
+<div class="generic-view">
+  <h2 class="label">Telefones <span *ngIf="listData.length > 1">({{listData.length}})</span></h2>
+  <ul>
+    <li class="subitem" *ngFor="let item of listData">
+      ({{item.ddd}}) {{item.number}}
+      <small>({{item['typeValue']}})</small>
+    </li>
+  </ul>
+</div>

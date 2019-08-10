@@ -1,0 +1,48 @@
+<mat-progress-bar
+  *ngIf="showLoading"
+  mode="indeterminate">
+</mat-progress-bar>
+
+<div class="generate-token-form">
+
+  <mat-card>
+    <mat-card-header>
+    </mat-card-header>
+    <mat-card-content>
+      <h2>Gerar token de validação </h2>
+      <p *ngIf="(formGroup.controls.email.valid && emailExist)" class="login-fail">O email de entrada não existe.</p>
+
+      <form #form [formGroup]="formGroup" method="POST">
+        <div class="use-grid">
+          <div class="use-row">
+            <div class="col-xs-12">
+              <h4>Nós lhe enviaremos um e-mail de verificação.</h4>
+              <mat-form-field>
+                <mat-label>Digite seu e-mail</mat-label>
+                <input formControlName="email" matInput type="text">
+                <mat-error>Este campo é obrigatório</mat-error>
+              </mat-form-field>
+            </div>
+
+          </div>
+        </div>
+      </form>
+
+      <div class="use-grid button-wrap">
+        <div class="use-row">
+
+          <div class="col-xs-6">
+            <button (click)="onSubmit()" [disabled]="(!formGroup.valid)" color="primary" mat-raised-button>Enviar</button>
+          </div>
+
+        </div>
+      </div>
+
+    </mat-card-content>
+
+  </mat-card>
+
+  <div [ngClass]="{active:active}" class="red-bar"></div>
+
+</div>
+

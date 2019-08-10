@@ -1,0 +1,44 @@
+<span class="generic-label"><mat-icon aria-label="" svgIcon="email"></mat-icon> E-mails
+  <span *ngIf="listData.length > 1">({{listData.length}})</span></span>
+
+<div class="generic-content">
+  <button #btnAdd mat-mini-fab
+          class="button-add mat-elevation-z0"
+          [ngClass]="{hidden: !showButtonAdd}"
+          matTooltip="Adicionar e-mail"
+          [disabled]="isEditorMode"
+          (click)="onShowAddEditItem()">
+    <mat-icon class="add">add_circle_outline</mat-icon>
+  </button>
+  <div class="use-grid" *ngFor="let item of listData">
+    <div #emailElement class="use-row">
+      <div class="col-sm-9" style="padding-top: 7px;">
+        {{item.address}} <small *ngIf="item.primary">(Principal)</small>
+      </div>
+      <div class="col-sm-3 button-group edit-delete">
+        <button mat-mini-fab class="mat-elevation-z0"
+                matTooltip="Editar"
+                [disabled]="isEditorMode"
+                (click)="onEditItem(item, emailElement)">
+          <mat-icon class="edit" svgIcon="create"></mat-icon>
+        </button>
+
+        <button mat-mini-fab class="remove mat-elevation-z0"
+                *ngIf="(listData.length > 1) && !item.primary"
+                matTooltip="Exluir"
+                [disabled]="isEditorMode"
+                (click)="onRemoveItem(item)">
+          <mat-icon class="delete" svgIcon="delete"></mat-icon>
+        </button>
+
+        <button mat-mini-fab class="remove-delete mat-elevation-z0"
+                *ngIf="(listData.length <= 1) || item.primary"
+                disabled>
+          <mat-icon svgIcon="remove-delete"></mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<generic-emails-edit #editor class="hidden" (cancel)="onEditorCancel()" (update)="onEditorUpdate($event)"></generic-emails-edit>

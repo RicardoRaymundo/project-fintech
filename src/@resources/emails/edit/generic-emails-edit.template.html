@@ -1,0 +1,28 @@
+<form [formGroup]="formGroup" novalidate>
+
+  <div class="generic-content editor">
+    <div class="use-grid">
+      <div class="use-row">
+        <div class="col-xsb-12 col-sm-10">
+
+          <mat-form-field>
+            <mat-label>E-mail</mat-label>
+            <input type="text" matInput formControlName="address" required>
+            <mat-error>Este campo é obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <div class="col-xsb-12 col-sm-2 button-group">
+          <button mat-mini-fab class="mat-elevation-z0" (click)="onUpdateEdit()" [disabled]="!formGroup.valid">
+            <mat-icon class="done">done</mat-icon>
+          </button>
+          <button mat-mini-fab class="mat-elevation-z0" (click)="onCancelEdit()">
+            <mat-icon class="close">close</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
